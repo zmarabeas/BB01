@@ -1,0 +1,173 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Angular Material + Tailwind Project Cursor Rules
+
+
+# IF YOU GET STUCK ON ANGULAR, REFERENCE 'bb-design-system/docs/angular/docs.txt'. IF YOU CAN"T FIGURE IT OUT AFTER THAT, REFERENCE 'bb-design-system/docs/angular/docs-full.txt'.
+
+## Project Mission
+Build a scalable Angular Material wrapper library with Tailwind CSS that serves as the foundation for all Better in Binary projects. Prioritize developer experience, customizability, and long-term maintainability.
+
+## Before Coding
+1. **Question library scope** - Does this component need to exist? Can Material handle it?
+2. **Plan for reusability** - How will this work across different projects?
+3. **Consider customization** - What will teams need to modify?
+4. **Design for tree-shaking** - Can unused code be eliminated?
+
+## Angular Architecture Standards
+
+### Library Structure
+- **Modular design** - Each component in its own module for tree-shaking
+- **Public API control** - Explicit exports, clean interface boundaries
+- **Consistent naming** - BB prefix for all components (bb-button, bb-card)
+- **Dependency injection** - Use Angular's DI for theming and configuration services
+
+### Component Patterns
+```typescript
+// Template: Extend Material with BB styling
+@Component({
+  selector: 'bb-[component]',
+  template: `
+    <mat-[component] 
+      [class]="computedClasses" 
+      [attr.data-bb-variant]="variant">
+      <ng-content></ng-content>
+    </mat-[component]>
+  `
+})
+export class BB[Component] {
+  @Input() variant: string = 'default';
+  get computedClasses(): string {
+    return this.themeService.getClasses(this.variant);
+  }
+}
+```
+
+### Service Architecture
+- **Theme service** - Centralized styling and token management
+- **Configuration service** - Project-specific settings
+- **Utility services** - Shared functionality across components
+- **Injectable everywhere** - Services available at component level
+
+## Material + Tailwind Integration
+
+### Styling Strategy
+- **Material foundation** - Use Material components as base
+- **Tailwind utilities** - Apply responsive design and spacing
+- **Custom CSS** - Only for signature BB animations and effects
+- **CSS custom properties** - For runtime theming
+
+### Class Application Order
+1. **Material classes** - Base component functionality
+2. **Tailwind utilities** - Layout, spacing, responsive design
+3. **BB custom classes** - Signature styling and animations
+4. **Dynamic classes** - Computed based on component state
+
+### Theme Token System
+```scss
+// Use CSS custom properties for easy customization
+:root {
+  --bb-primary: #{map-get($bb-theme, primary)};
+  --bb-surface: #{map-get($bb-theme, surface)};
+  --bb-spacing-unit: 0.25rem;
+}
+
+.bb-component {
+  color: var(--bb-primary);
+  padding: calc(var(--bb-spacing-unit) * 4);
+}
+```
+
+## Development Standards
+
+### Component Quality
+- **Single responsibility** - Each component does one thing well
+- **Input validation** - Type-safe props with sensible defaults
+- **Output events** - Consistent naming (bbClick, bbChange)
+- **Accessibility** - Proper ARIA labels, keyboard navigation
+- **Performance** - OnPush change detection where possible
+
+### Testing Requirements
+- **Unit tests** - Every component with behavior testing
+- **Visual regression** - Screenshot tests for styling consistency
+- **Accessibility tests** - Automated a11y checking
+- **Integration tests** - Components working together
+- **Performance tests** - Bundle size and runtime performance
+
+### Documentation Standards
+- **JSDoc comments** - Complete API documentation
+- **Storybook stories** - Interactive component examples
+- **Usage examples** - Copy-paste ready code samples
+- **Migration guides** - Moving from vanilla Material
+- **Customization examples** - Theme and styling modifications
+
+## Build & Distribution
+
+### Package Management
+- **Semantic versioning** - Clear version increments
+- **Peer dependencies** - Angular, Material, Tailwind as peers
+- **Bundle optimization** - Tree-shakeable, minimal runtime
+- **TypeScript support** - Full type definitions included
+
+### Quality Gates
+- **Lint passing** - ESLint + Angular specific rules
+- **Tests passing** - 90%+ code coverage
+- **Build success** - No compilation errors or warnings
+- **Bundle analysis** - Size limits and dependency checking
+- **Accessibility audit** - Automated a11y testing
+
+## Customization API
+
+### Theme Configuration
+```typescript
+interface BBThemeConfig {
+  colors: ColorPalette;
+  typography: TypographyConfig;
+  spacing: SpacingConfig;
+  animations: AnimationConfig;
+  breakpoints: BreakpointConfig;
+}
+
+// Usage in consuming projects
+BBDesignSystemModule.forRoot({
+  theme: customThemeConfig
+})
+```
+
+### Component Variants
+- **Built-in variants** - primary, secondary, outline, text
+- **Custom variants** - Extensible system for project-specific needs
+- **Responsive variants** - Different styles at different breakpoints
+- **State variants** - hover, active, disabled, loading
+
+## Integration Planning
+
+### Future Service Integration
+- **Authentication** - Auth guards, login components
+- **State management** - NgRx integration patterns
+- **API clients** - HTTP interceptors, error handling
+- **Monitoring** - Analytics, error tracking
+- **Testing utilities** - Mocks, fixtures, test helpers
+
+### Project Scalability
+- **Multi-theme support** - Different brands/products
+- **Internationalization** - RTL support, text scaling
+- **Performance monitoring** - Bundle size tracking
+- **Version compatibility** - Angular version support strategy
+
+## Success Metrics
+- [ ] Components install and work immediately in new projects
+- [ ] Theming can be customized without touching component code
+- [ ] Bundle size stays under defined limits
+- [ ] All accessibility standards are met
+- [ ] Documentation enables quick developer adoption
+- [ ] Library feels distinctly "Better in Binary"
+- [ ] Components compose well together
+- [ ] Performance meets established benchmarks
+
+---
+
+*Build a design system that developers love to use and that scales beautifully. Every component should feel like a natural extension of Angular Material while embodying the Better in Binary aesthetic.*

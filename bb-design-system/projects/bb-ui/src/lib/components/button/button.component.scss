@@ -1,0 +1,328 @@
+@import '../../core/tokens/design-tokens.scss';
+
+// BB Button Component Styles
+.bb-button {
+  @include bb-component-base;
+  @include bb-component-hover;
+  @include bb-component-focus;
+  @include bb-component-disabled;
+  
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--bb-space-2);
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-weight: var(--bb-font-medium);
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  
+  // Base styles for all variants
+  &__label {
+    font-family: var(--bb-font-family-sans);
+    line-height: 1;
+  }
+  
+  &__icon {
+    font-size: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+    
+    &--start {
+      margin-right: var(--bb-space-1);
+    }
+    
+    &--end {
+      margin-left: var(--bb-space-1);
+    }
+  }
+  
+  // ============================================================================
+  // VARIANT STYLES
+  // ============================================================================
+  
+  // Primary variant
+  &--primary {
+    background-color: var(--bb-primary-500);
+    color: var(--bb-surface);
+    border-color: var(--bb-primary-500);
+    
+    &:hover:not(:disabled) {
+      background-color: var(--bb-primary-600);
+      border-color: var(--bb-primary-600);
+      box-shadow: var(--bb-glow-primary);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--bb-primary-700);
+      border-color: var(--bb-primary-700);
+    }
+  }
+  
+  // Secondary variant
+  &--secondary {
+    background-color: var(--bb-secondary-500);
+    color: var(--bb-surface);
+    border-color: var(--bb-secondary-500);
+    
+    &:hover:not(:disabled) {
+      background-color: var(--bb-secondary-600);
+      border-color: var(--bb-secondary-600);
+      box-shadow: var(--bb-shadow-lg);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--bb-secondary-700);
+      border-color: var(--bb-secondary-700);
+    }
+  }
+  
+  // Tech variant (signature Better in Binary style)
+  &--tech {
+    background-color: var(--bb-tech-500);
+    color: var(--bb-surface);
+    border-color: var(--bb-tech-500);
+    
+    &:hover:not(:disabled) {
+      background-color: var(--bb-tech-600);
+      border-color: var(--bb-tech-600);
+      box-shadow: var(--bb-glow-tech);
+      transform: translateY(-2px);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--bb-tech-700);
+      border-color: var(--bb-tech-700);
+      transform: translateY(0);
+    }
+  }
+  
+  // Outline variant
+  &--outline {
+    background-color: transparent;
+    color: var(--bb-primary-500);
+    border-color: var(--bb-primary-500);
+    
+    &:hover:not(:disabled) {
+      background-color: var(--bb-primary-50);
+      border-color: var(--bb-primary-600);
+      color: var(--bb-primary-600);
+      box-shadow: var(--bb-shadow-md);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--bb-primary-100);
+      border-color: var(--bb-primary-700);
+      color: var(--bb-primary-700);
+    }
+  }
+  
+  // Ghost variant
+  &--ghost {
+    background-color: transparent;
+    color: var(--bb-primary-500);
+    border-color: transparent;
+    
+    &:hover:not(:disabled) {
+      background-color: var(--bb-primary-50);
+      color: var(--bb-primary-600);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--bb-primary-100);
+      color: var(--bb-primary-700);
+    }
+  }
+  
+  // Danger variant
+  &--danger {
+    background-color: var(--bb-error-500);
+    color: var(--bb-surface);
+    border-color: var(--bb-error-500);
+    
+    &:hover:not(:disabled) {
+      background-color: var(--bb-error-600);
+      border-color: var(--bb-error-600);
+      box-shadow: var(--bb-glow-error);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--bb-error-700);
+      border-color: var(--bb-error-700);
+    }
+  }
+  
+  // Success variant
+  &--success {
+    background-color: var(--bb-success-500);
+    color: var(--bb-surface);
+    border-color: var(--bb-success-500);
+    
+    &:hover:not(:disabled) {
+      background-color: var(--bb-success-600);
+      border-color: var(--bb-success-600);
+      box-shadow: var(--bb-glow-success);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--bb-success-700);
+      border-color: var(--bb-success-700);
+    }
+  }
+  
+  // Warning variant
+  &--warning {
+    background-color: var(--bb-warning-500);
+    color: var(--bb-surface);
+    border-color: var(--bb-warning-500);
+    
+    &:hover:not(:disabled) {
+      background-color: var(--bb-warning-600);
+      border-color: var(--bb-warning-600);
+      box-shadow: var(--bb-glow-warning);
+    }
+    
+    &:active:not(:disabled) {
+      background-color: var(--bb-warning-700);
+      border-color: var(--bb-warning-700);
+    }
+  }
+  
+  // ============================================================================
+  // SIZE STYLES
+  // ============================================================================
+  
+  // Small size
+  &--small {
+    padding: var(--bb-component-padding-sm);
+    font-size: var(--bb-text-sm);
+    min-height: 32px;
+    
+    .bb-button__icon {
+      font-size: 1em;
+      width: 1em;
+      height: 1em;
+    }
+  }
+  
+  // Medium size (default)
+  &--medium {
+    padding: var(--bb-component-padding-md);
+    font-size: var(--bb-text-base);
+    min-height: 40px;
+    
+    .bb-button__icon {
+      font-size: 1.2em;
+      width: 1.2em;
+      height: 1.2em;
+    }
+  }
+  
+  // Large size
+  &--large {
+    padding: var(--bb-component-padding-lg);
+    font-size: var(--bb-text-lg);
+    min-height: 48px;
+    
+    .bb-button__icon {
+      font-size: 1.4em;
+      width: 1.4em;
+      height: 1.4em;
+    }
+  }
+  
+  // ============================================================================
+  // STATE STYLES
+  // ============================================================================
+  
+  // Loading state
+  &--loading {
+    @include bb-component-loading;
+    
+    .bb-button__label,
+    .bb-button__icon {
+      opacity: 0.7;
+    }
+  }
+  
+  // Disabled state
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+  
+  // Focus state (enhanced for accessibility)
+  &:focus-visible {
+    outline: 2px solid var(--bb-outline-focus);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  }
+  
+  // ============================================================================
+  // RESPONSIVE STYLES
+  // ============================================================================
+  
+  @media (max-width: 768px) {
+    &--large {
+      padding: var(--bb-component-padding-md);
+      font-size: var(--bb-text-base);
+      min-height: 44px;
+    }
+  }
+  
+  // ============================================================================
+  // ANIMATION ENHANCEMENTS
+  // ============================================================================
+  
+  // Smooth transitions for all interactive states
+  transition: 
+    background-color var(--bb-duration-200) var(--bb-ease-out),
+    border-color var(--bb-duration-200) var(--bb-ease-out),
+    color var(--bb-duration-200) var(--bb-ease-out),
+    transform var(--bb-duration-200) var(--bb-ease-tech),
+    box-shadow var(--bb-duration-200) var(--bb-ease-out);
+  
+  // Tech variant gets special animation treatment
+  &--tech {
+    transition: 
+      background-color var(--bb-duration-200) var(--bb-ease-out),
+      border-color var(--bb-duration-200) var(--bb-ease-out),
+      color var(--bb-duration-200) var(--bb-ease-out),
+      transform var(--bb-duration-200) var(--bb-ease-tech),
+      box-shadow var(--bb-duration-300) var(--bb-ease-tech);
+  }
+  
+  // ============================================================================
+  // DARK MODE SUPPORT
+  // ============================================================================
+  
+  @media (prefers-color-scheme: dark) {
+    &--outline {
+      color: var(--bb-primary-400);
+      border-color: var(--bb-primary-400);
+      
+      &:hover:not(:disabled) {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: var(--bb-primary-300);
+        border-color: var(--bb-primary-300);
+      }
+    }
+    
+    &--ghost {
+      color: var(--bb-primary-400);
+      
+      &:hover:not(:disabled) {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: var(--bb-primary-300);
+      }
+    }
+  }
+} 

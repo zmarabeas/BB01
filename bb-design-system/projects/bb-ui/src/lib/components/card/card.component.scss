@@ -1,0 +1,208 @@
+@import '../../core/tokens/design-tokens.scss';
+
+// BB Card Component Styles
+.bb-card {
+  @include bb-component-base;
+  
+  background-color: var(--bb-surface);
+  border-radius: var(--bb-radius-lg);
+  overflow: hidden;
+  position: relative;
+  
+  // ============================================================================
+  // VARIANT STYLES
+  // ============================================================================
+  
+  // Default variant
+  &--default {
+    border: 1px solid var(--bb-outline);
+    box-shadow: var(--bb-shadow-sm);
+  }
+  
+  // Elevated variant
+  &--elevated {
+    border: 1px solid var(--bb-outline);
+    box-shadow: var(--bb-shadow-lg);
+    
+    &:hover {
+      box-shadow: var(--bb-shadow-xl);
+    }
+  }
+  
+  // Outlined variant
+  &--outlined {
+    border: 2px solid var(--bb-outline);
+    box-shadow: none;
+    background-color: transparent;
+    
+    &:hover {
+      border-color: var(--bb-outline-variant);
+      box-shadow: var(--bb-shadow-sm);
+    }
+  }
+  
+  // ============================================================================
+  // INTERACTIVE STYLES
+  // ============================================================================
+  
+  &--interactive {
+    cursor: pointer;
+    transition: 
+      transform var(--bb-duration-200) var(--bb-ease-out),
+      box-shadow var(--bb-duration-200) var(--bb-ease-out),
+      border-color var(--bb-duration-200) var(--bb-ease-out);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--bb-shadow-xl);
+    }
+    
+    &:active {
+      transform: translateY(-1px);
+      transition: var(--bb-transition-fast);
+    }
+    
+    &:focus-visible {
+      outline: 2px solid var(--bb-outline-focus);
+      outline-offset: 2px;
+    }
+  }
+  
+  // ============================================================================
+  // LOADING STATE
+  // ============================================================================
+  
+  &--loading {
+    @include bb-component-loading;
+    
+    .mat-card-content {
+      opacity: 0.7;
+    }
+  }
+  
+  // ============================================================================
+  // MATERIAL CARD OVERRIDES
+  // ============================================================================
+  
+  .mat-card-header {
+    padding: var(--bb-space-4) var(--bb-space-4) 0;
+    
+    .mat-card-title {
+      font-family: var(--bb-font-family-sans);
+      font-size: var(--bb-text-xl);
+      font-weight: var(--bb-font-semibold);
+      color: var(--bb-secondary-900);
+      margin: 0;
+      line-height: var(--bb-leading-tight);
+    }
+    
+    .mat-card-subtitle {
+      font-family: var(--bb-font-family-sans);
+      font-size: var(--bb-text-sm);
+      font-weight: var(--bb-font-normal);
+      color: var(--bb-secondary-600);
+      margin: var(--bb-space-1) 0 0 0;
+      line-height: var(--bb-leading-normal);
+    }
+  }
+  
+  .mat-card-content {
+    padding: var(--bb-space-4);
+    font-family: var(--bb-font-family-sans);
+    font-size: var(--bb-text-base);
+    line-height: var(--bb-leading-relaxed);
+    color: var(--bb-secondary-800);
+  }
+  
+  .mat-card-actions {
+    padding: var(--bb-space-3) var(--bb-space-4) var(--bb-space-4);
+    display: flex;
+    gap: var(--bb-space-2);
+    align-items: center;
+    justify-content: flex-end;
+    
+    &:first-child {
+      margin-left: 0;
+    }
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  // ============================================================================
+  // RESPONSIVE STYLES
+  // ============================================================================
+  
+  @media (max-width: 768px) {
+    .mat-card-header {
+      padding: var(--bb-space-3) var(--bb-space-3) 0;
+      
+      .mat-card-title {
+        font-size: var(--bb-text-lg);
+      }
+    }
+    
+    .mat-card-content {
+      padding: var(--bb-space-3);
+    }
+    
+    .mat-card-actions {
+      padding: var(--bb-space-2) var(--bb-space-3) var(--bb-space-3);
+      flex-direction: column;
+      align-items: stretch;
+      
+      > * {
+        width: 100%;
+      }
+    }
+  }
+  
+  // ============================================================================
+  // DARK MODE SUPPORT
+  // ============================================================================
+  
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--bb-surface);
+    
+    .mat-card-title {
+      color: var(--bb-secondary-100);
+    }
+    
+    .mat-card-subtitle {
+      color: var(--bb-secondary-400);
+    }
+    
+    .mat-card-content {
+      color: var(--bb-secondary-200);
+    }
+    
+    &--outlined {
+      background-color: transparent;
+      border-color: var(--bb-outline);
+      
+      &:hover {
+        border-color: var(--bb-outline-variant);
+      }
+    }
+  }
+  
+  // ============================================================================
+  // ANIMATION ENHANCEMENTS
+  // ============================================================================
+  
+  // Smooth transitions for all interactive states
+  transition: 
+    box-shadow var(--bb-duration-200) var(--bb-ease-out),
+    border-color var(--bb-duration-200) var(--bb-ease-out),
+    background-color var(--bb-duration-200) var(--bb-ease-out);
+  
+  // Enhanced transitions for interactive cards
+  &--interactive {
+    transition: 
+      transform var(--bb-duration-200) var(--bb-ease-tech),
+      box-shadow var(--bb-duration-200) var(--bb-ease-out),
+      border-color var(--bb-duration-200) var(--bb-ease-out),
+      background-color var(--bb-duration-200) var(--bb-ease-out);
+  }
+} 
