@@ -1,0 +1,57 @@
+/* ============================================================================
+   APP COMPONENT STYLES
+   ============================================================================ */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.app-header {
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--neutral);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.app-main {
+  flex: 1;
+  padding: 0;
+}
+
+.app-footer {
+  background-color: var(--surface);
+  border-top: 1px solid var(--neutral);
+  padding: 1rem 2rem;
+  text-align: center;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1rem;
+  }
+  
+  .app-header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .app-footer {
+    padding: 1rem;
+  }
+} 

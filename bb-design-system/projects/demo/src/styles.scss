@@ -1,149 +1,910 @@
-/* Demo Application Styles */
+/* =========================================================================
+   ANGULAR MATERIAL - BASIC CONFIGURATION
+   ========================================================================= */
+
+/* Import Angular Material basic styles */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* =========================================================================
+   CSS VARIABLES FOR THEME SYSTEM
+   ========================================================================= */
+
+:root {
+  /* Default theme (Coastal) - will be overridden by theme service */
+  --primary: #1b9aaa;
+  --secondary: #dddbcb;
+  --surface: #f5f1e3;
+  --neutral: #dddbcb;
+  --text: #050505;
+  --background: #ffffff;
+  
+  /* Additional utility colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  
+  /* Spacing and typography */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Custom CSS Variables for Material Design */
+  --mat-primary-color: #3f51b5;
+  --mat-primary-light: #757de8;
+  --mat-primary-dark: #002984;
+  --mat-accent-color: #ff4081;
+  --mat-accent-light: #ff79b0;
+  --mat-accent-dark: #c60055;
+  --mat-warn-color: #f44336;
+  --mat-success-color: #4caf50;
+  --mat-info-color: #2196f3;
+  --mat-warning-color: #ff9800;
+
+  /* Material Design Background Colors */
+  --mat-background-color: #fafafa;
+  --mat-card-background-color: #ffffff;
+  --mat-toolbar-background-color: #f5f5f5;
+  --mat-hover-color: #f0f0f0;
+
+  /* Material Design Text Colors */
+  --mat-text-color: #212121;
+  --mat-text-secondary: #757575;
+  --mat-text-disabled: #bdbdbd;
+
+  /* Material Design Divider Colors */
+  --mat-divider-color: #e0e0e0;
+
+  /* Material Design Elevation */
+  --mat-elevation-1: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  --mat-elevation-2: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  --mat-elevation-4: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+  --mat-elevation-8: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  --mat-elevation-16: 0 8px 10px 1px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+}
+
+/* Dark mode overrides */
+.dark {
+  --background: #1a1a1a;
+  --text: #ffffff;
+  --surface: #2d2d2d;
+  --neutral: #404040;
+  
+  /* Dark Theme Variables */
+  --mat-background-color: #121212;
+  --mat-card-background-color: #1e1e1e;
+  --mat-toolbar-background-color: #2d2d2d;
+  --mat-hover-color: #2a2a2a;
+  --mat-text-color: #ffffff;
+  --mat-text-secondary: #b0b0b0;
+  --mat-text-disabled: #666666;
+  --mat-divider-color: #424242;
+  
+  /* Override Material colors for dark mode */
+  --mat-primary-color: #90caf9;
+  --mat-primary-dark: #42a5f5;
+  --mat-accent-color: #ffab91;
+  --mat-warn-color: #ef5350;
+  --mat-warning-color: #ffb74d;
+}
+
+/* Dark Theme Variables - legacy support */
+[data-theme="dark"] {
+  --mat-background-color: #121212;
+  --mat-card-background-color: #1e1e1e;
+  --mat-toolbar-background-color: #2d2d2d;
+  --mat-hover-color: #2a2a2a;
+  --mat-text-color: #ffffff;
+  --mat-text-secondary: #b0b0b0;
+  --mat-text-disabled: #666666;
+  --mat-divider-color: #424242;
+}
+
+/* =========================================================================
+   BASE STYLES
+   ========================================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--background);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #f8fafc;
-  color: #1e293b;
-  line-height: 1.5;
   margin: 0;
   padding: 0;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Demo Layout */
-.demo-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* =========================================================================
+   UTILITY CLASSES FOR THEME COLORS
+   ========================================================================= */
+
+/* Background colors */
+.bg-primary { background-color: var(--primary) !important; }
+.bg-secondary { background-color: var(--secondary) !important; }
+.bg-surface { background-color: var(--surface) !important; }
+.bg-neutral { background-color: var(--neutral) !important; }
+.bg-text { background-color: var(--text) !important; }
+.bg-background { background-color: var(--background) !important; }
+
+/* Text colors */
+.text-primary { color: var(--primary) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.text-surface { color: var(--surface) !important; }
+.text-neutral { color: var(--neutral) !important; }
+.text-text { color: var(--text) !important; }
+.text-background { color: var(--background) !important; }
+
+/* Border colors */
+.border-primary { border-color: var(--primary) !important; }
+.border-secondary { border-color: var(--secondary) !important; }
+.border-surface { border-color: var(--surface) !important; }
+.border-neutral { border-color: var(--neutral) !important; }
+.border-text { border-color: var(--text) !important; }
+.border-background { border-color: var(--background) !important; }
+
+/* =========================================================================
+   ANGULAR MATERIAL THEME OVERRIDES
+   ========================================================================= */
+
+/* Override Material theme colors with CSS variables */
+.mat-raised-button.mat-primary {
+  background-color: var(--primary) !important;
+  color: white !important;
 }
 
-.demo-header {
-  background-color: white;
-  border-bottom: 1px solid #e2e8f0;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+.mat-raised-button.mat-accent {
+  background-color: var(--secondary) !important;
+  color: var(--text) !important;
 }
 
-.demo-content {
-  flex: 1;
-  padding: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+.mat-stroked-button.mat-primary {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
-.demo-section {
-  margin-bottom: 2rem;
+.mat-stroked-button.mat-accent {
+  border-color: var(--secondary) !important;
+  color: var(--secondary) !important;
 }
 
-.demo-section-title {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #06b6d4;
-  padding-bottom: 0.5rem;
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: var(--primary) !important;
 }
 
-.demo-subsection {
-  margin-bottom: 1.5rem;
+.mat-form-field.mat-focused .mat-form-field-outline {
+  color: var(--primary) !important;
 }
 
-.demo-subsection-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #334155;
-  margin-bottom: 0.75rem;
+.mat-checkbox.mat-primary .mat-checkbox-frame {
+  border-color: var(--primary) !important;
 }
 
-.demo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
+.mat-checkbox.mat-primary .mat-checkbox-checkmark-path {
+  stroke: var(--primary) !important;
 }
 
-.demo-showcase {
-  background-color: white;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+/* Comprehensive Material component theming */
+.mat-mdc-button.mat-primary {
+  color: var(--primary) !important;
 }
 
-.demo-showcase-title {
-  font-size: 1.125rem;
+.mat-mdc-button.mat-accent {
+  color: var(--secondary) !important;
+}
+
+.mat-mdc-button.mat-warn {
+  color: var(--error, #f44336) !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+  background-color: var(--primary) !important;
+  color: white !important;
+}
+
+.mat-mdc-raised-button.mat-accent {
+  background-color: var(--secondary) !important;
+  color: var(--text) !important;
+}
+
+.mat-mdc-raised-button.mat-warn {
+  background-color: var(--error, #f44336) !important;
+  color: white !important;
+}
+
+.mat-mdc-outlined-button.mat-primary {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+.mat-mdc-outlined-button.mat-accent {
+  border-color: var(--secondary) !important;
+  color: var(--secondary) !important;
+}
+
+.mat-mdc-outlined-button.mat-warn {
+  border-color: var(--error, #f44336) !important;
+  color: var(--error, #f44336) !important;
+}
+
+/* Form field theming */
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-ripple {
+  background-color: var(--primary) !important;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-outline {
+  color: var(--primary) !important;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-label {
+  color: var(--primary) !important;
+}
+
+/* Checkbox theming */
+.mat-mdc-checkbox.mat-primary .mat-mdc-checkbox-frame {
+  border-color: var(--primary) !important;
+}
+
+.mat-mdc-checkbox.mat-primary .mat-mdc-checkbox-checkmark-path {
+  stroke: var(--primary) !important;
+}
+
+/* Radio button theming */
+.mat-mdc-radio-button.mat-primary .mat-mdc-radio-outer-circle {
+  border-color: var(--primary) !important;
+}
+
+.mat-mdc-radio-button.mat-primary .mat-mdc-radio-inner-circle {
+  background-color: var(--primary) !important;
+}
+
+/* Slider theming */
+.mat-mdc-slider.mat-primary .mat-mdc-slider-track-fill {
+  background-color: var(--primary) !important;
+}
+
+.mat-mdc-slider.mat-primary .mat-mdc-slider-thumb {
+  background-color: var(--primary) !important;
+}
+
+/* Progress bar theming */
+.mat-mdc-progress-bar.mat-primary .mat-mdc-progress-bar-fill::after {
+  background-color: var(--primary) !important;
+}
+
+.mat-mdc-progress-bar.mat-accent .mat-mdc-progress-bar-fill::after {
+  background-color: var(--secondary) !important;
+}
+
+.mat-mdc-progress-bar.mat-warn .mat-mdc-progress-bar-fill::after {
+  background-color: var(--error, #f44336) !important;
+}
+
+/* Tab theming */
+.mat-mdc-tab.mat-mdc-tab-active {
+  color: var(--primary) !important;
+}
+
+.mat-mdc-tab-group.mat-primary .mat-mdc-tab-header-pagination-chevron {
+  border-color: var(--primary) !important;
+}
+
+/* Chip theming */
+.mat-mdc-chip.mat-primary {
+  background-color: var(--primary) !important;
+  color: white !important;
+}
+
+.mat-mdc-chip.mat-accent {
+  background-color: var(--secondary) !important;
+  color: var(--text) !important;
+}
+
+.mat-mdc-chip.mat-warn {
+  background-color: var(--error, #f44336) !important;
+  color: white !important;
+}
+
+/* Card theming */
+.mat-mdc-card {
+  background-color: var(--mat-card-background-color) !important;
+  color: var(--mat-text-color) !important;
+}
+
+/* Toolbar theming */
+.mat-mdc-toolbar {
+  background-color: var(--mat-toolbar-background-color) !important;
+  color: var(--mat-text-color) !important;
+}
+
+/* Dark mode Material component overrides */
+.dark {
+  .mat-card {
+    background-color: var(--mat-card-background-color) !important;
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-toolbar {
+    background-color: var(--mat-toolbar-background-color) !important;
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-form-field {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-form-field-label {
+    color: var(--mat-text-secondary) !important;
+  }
+  
+  .mat-form-field-outline {
+    color: var(--mat-divider-color) !important;
+  }
+  
+  .mat-input-element {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-checkbox-label {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-radio-label {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-slide-toggle-label {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-list-item {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-chip {
+    background-color: var(--mat-card-background-color) !important;
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-tab-label {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-tab-label-active {
+    color: var(--mat-primary-color) !important;
+  }
+  
+  .mat-menu-panel {
+    background-color: var(--mat-card-background-color) !important;
+  }
+  
+  .mat-menu-item {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-dialog-container {
+    background-color: var(--mat-card-background-color) !important;
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-snack-bar-container {
+    background-color: var(--mat-card-background-color) !important;
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-expansion-panel {
+    background-color: var(--mat-card-background-color) !important;
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-expansion-panel-header {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-stepper-horizontal {
+    background-color: var(--mat-card-background-color) !important;
+  }
+  
+  .mat-step-header {
+    color: var(--mat-text-color) !important;
+  }
+  
+  .mat-step-header.mat-step-header-ripple {
+    background-color: var(--mat-primary-color) !important;
+  }
+}
+
+/* =========================================================================
+   GLOBAL STYLES
+   ========================================================================= */
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
   font-weight: 500;
-  color: #64748b;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  line-height: 1.2;
 }
 
-.demo-code {
-  background-color: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.375rem;
-  padding: 0.75rem;
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-  font-size: 0.875rem;
-  color: #334155;
-  margin-top: 0.75rem;
-  overflow-x: auto;
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin: 0 0 1rem 0;
 }
 
-/* Component Showcase Styles */
-.component-showcase {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
-  margin-bottom: 1rem;
+/* Links */
+a {
+  color: var(--mat-primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.component-variant {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.375rem;
-  background-color: white;
-  min-width: 120px;
+a:hover {
+  color: var(--mat-primary-dark);
 }
 
-.component-variant-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #64748b;
-  text-align: center;
+/* Focus Styles */
+*:focus {
+  outline: 2px solid var(--mat-primary-color);
+  outline-offset: 2px;
 }
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 1rem; }
+.p-4 { padding: 1.5rem; }
+.p-5 { padding: 3rem; }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .demo-content {
-    padding: 1rem;
+  html {
+    font-size: 14px;
   }
   
-  .demo-header {
-    padding: 0.75rem 1rem;
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
   }
   
-  .demo-section-title {
-    font-size: 1.5rem;
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.125rem; }
+  h5 { font-size: 1rem; }
+  h6 { font-size: 0.875rem; }
+}
+
+/* Print Styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
   
-  .demo-grid {
-    grid-template-columns: 1fr;
+  a, a:visited {
+    text-decoration: underline;
   }
   
-  .component-showcase {
-    flex-direction: column;
-    align-items: stretch;
+  a[href]:after {
+    content: " (" attr(href) ")";
   }
   
-  .component-variant {
-    flex-direction: row;
-    justify-content: space-between;
-    min-width: auto;
+  abbr[title]:after {
+    content: " (" attr(title) ")";
   }
+  
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  
+  thead {
+    display: table-header-group;
+  }
+  
+  tr, img {
+    page-break-inside: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+  }
+  
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}
+
+/* =========================================================================
+   MATERIAL DESIGN COMPONENT FIXES
+   ========================================================================= */
+
+/* Icon fixes - ensure proper sizing */
+.mat-icon {
+  -webkit-user-select: none;
+  user-select: none;
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px !important;
+  width: 24px !important;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+/* Button fixes */
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-stroked-button,
+.mat-mdc-flat-button {
+  margin: 0.25rem !important;
+  min-height: 36px !important;
+  line-height: 36px !important;
+  padding: 0 16px !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.0892857143em !important;
+}
+
+/* FAB button fixes */
+.mat-mdc-fab,
+.mat-mdc-mini-fab {
+  margin: 0.25rem !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+}
+
+.mat-mdc-mini-fab {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+/* Icon button fixes */
+.mat-mdc-icon-button {
+  margin: 0.25rem !important;
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+}
+
+/* Form field fixes */
+.mat-mdc-form-field {
+  margin-bottom: 1rem !important;
+  width: 100% !important;
+}
+
+.mat-mdc-form-field-wrapper {
+  padding-bottom: 0 !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  height: auto !important;
+}
+
+/* Card fixes */
+.mat-mdc-card {
+  margin: 0.5rem 0 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  transition: box-shadow 0.3s ease !important;
+}
+
+.mat-mdc-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mat-mdc-card-header {
+  padding: 16px 16px 0 16px !important;
+}
+
+.mat-mdc-card-content {
+  padding: 16px !important;
+}
+
+.mat-mdc-card-actions {
+  padding: 8px 16px 16px 16px !important;
+  margin: 0 !important;
+}
+
+/* Table fixes */
+.mat-mdc-table {
+  width: 100% !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.mat-mdc-header-cell {
+  padding: 12px 16px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+.mat-mdc-cell {
+  padding: 12px 16px !important;
+  font-size: 14px !important;
+}
+
+/* Tab fixes */
+.mat-mdc-tab-group {
+  margin: 1rem 0 !important;
+}
+
+.mat-mdc-tab-header {
+  border-bottom: 1px solid var(--mat-divider-color) !important;
+}
+
+.mat-mdc-tab-label {
+  min-width: 120px !important;
+  padding: 0 16px !important;
+  height: 48px !important;
+  font-weight: 500 !important;
+}
+
+/* Chip fixes */
+.mat-mdc-chip {
+  margin: 0.25rem !important;
+  height: 32px !important;
+  border-radius: 16px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+/* Checkbox and radio fixes */
+.mat-mdc-checkbox,
+.mat-mdc-radio-button {
+  margin: 0.5rem 0 !important;
+}
+
+.mat-mdc-checkbox-label,
+.mat-mdc-radio-label {
+  margin-left: 0.5rem !important;
+  font-size: 14px !important;
+}
+
+/* Slider fixes */
+.mat-mdc-slider {
+  margin: 1rem 0 !important;
+  width: 100% !important;
+}
+
+/* Progress bar fixes */
+.mat-mdc-progress-bar {
+  margin: 0.5rem 0 !important;
+  height: 4px !important;
+}
+
+/* Stepper fixes */
+.mat-stepper-horizontal {
+  margin: 1rem 0 !important;
+}
+
+.mat-step-header {
+  padding: 0 16px !important;
+  height: 72px !important;
+}
+
+.mat-step-content {
+  padding: 1rem 0 !important;
+}
+
+/* Expansion panel fixes */
+.mat-expansion-panel {
+  margin: 0.5rem 0 !important;
+  border-radius: 4px !important;
+}
+
+.mat-expansion-panel-header {
+  padding: 16px !important;
+  height: auto !important;
+}
+
+.mat-expansion-panel-content {
+  padding: 0 16px 16px 16px !important;
+}
+
+/* Menu fixes */
+.mat-mdc-menu-panel {
+  border-radius: 4px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.mat-mdc-menu-item {
+  height: 48px !important;
+  padding: 0 16px !important;
+  font-size: 14px !important;
+}
+
+/* Button toggle fixes */
+.mat-button-toggle-group {
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.mat-button-toggle {
+  border: none !important;
+  border-radius: 0 !important;
+  min-width: 48px !important;
+  height: 36px !important;
+}
+
+.mat-button-toggle:first-child {
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+}
+
+.mat-button-toggle:last-child {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+/* Badge fixes */
+.mat-mdc-badge {
+  margin: 0.25rem !important;
+}
+
+.mat-mdc-badge-content {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  line-height: 20px !important;
+  border-radius: 10px !important;
+}
+
+/* Divider fixes */
+.mat-mdc-divider {
+  margin: 1rem 0 !important;
+}
+
+/* List fixes */
+.mat-mdc-list-item {
+  height: auto !important;
+  min-height: 48px !important;
+  padding: 8px 16px !important;
+}
+
+/* Toolbar fixes */
+.mat-mdc-toolbar {
+  padding: 0 16px !important;
+  min-height: 64px !important;
+}
+
+/* Snackbar fixes */
+.mat-mdc-snack-bar-container {
+  border-radius: 4px !important;
+  margin: 8px !important;
+}
+
+/* Dialog fixes */
+.mat-mdc-dialog-container {
+  border-radius: 8px !important;
+  padding: 0 !important;
+}
+
+.mat-mdc-dialog-content {
+  padding: 24px !important;
+  margin: 0 !important;
+}
+
+.mat-mdc-dialog-actions {
+  padding: 8px 24px 24px 24px !important;
+  margin: 0 !important;
+  justify-content: flex-end !important;
+}
+
+/* Bottom sheet fixes */
+.mat-mdc-bottom-sheet-container {
+  border-radius: 8px 8px 0 0 !important;
+  padding: 16px !important;
+}
+
+/* Tree fixes */
+.mat-mdc-tree {
+  padding: 0 !important;
+}
+
+.mat-mdc-tree-node {
+  min-height: 48px !important;
+  padding: 0 16px !important;
+}
+
+/* Autocomplete fixes */
+.mat-mdc-autocomplete-panel {
+  border-radius: 4px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Datepicker fixes */
+.mat-mdc-datepicker-popup {
+  border-radius: 4px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Paginator fixes */
+.mat-mdc-paginator {
+  border-radius: 0 0 4px 4px !important;
+}
+
+/* Sort fixes */
+.mat-mdc-sort-header {
+  padding: 0 16px !important;
+  height: 48px !important;
+}
+
+/* Tooltip fixes */
+.mat-mdc-tooltip {
+  font-size: 12px !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
 } 
