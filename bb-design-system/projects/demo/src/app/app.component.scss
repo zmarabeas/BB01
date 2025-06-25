@@ -13,7 +13,7 @@
 .app-header {
   background-color: var(--surface);
   border-bottom: 1px solid var(--neutral);
-  padding: 1rem 2rem;
+  padding: var(--component-padding-md) var(--layout-padding-md);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,7 +35,7 @@
 .app-footer {
   background-color: var(--surface);
   border-top: 1px solid var(--neutral);
-  padding: 1rem 2rem;
+  padding: var(--component-padding-md) var(--layout-padding-md);
   text-align: center;
   color: var(--text);
   opacity: 0.8;
@@ -44,7 +44,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .app-header {
-    padding: 1rem;
+    padding: var(--component-padding-sm) var(--layout-padding-sm);
   }
   
   .app-header h1 {
@@ -52,6 +52,6 @@
   }
   
   .app-footer {
-    padding: 1rem;
+    padding: var(--component-padding-sm) var(--layout-padding-sm);
   }
 } 

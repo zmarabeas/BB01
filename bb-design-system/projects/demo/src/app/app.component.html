@@ -1,11 +1,27 @@
-<div class="app-container">
-  <header class="app-header">
-    <h1>Angular Material + PrimeNG Theme Demo</h1>
+<div class="min-h-screen bg-background text-text flex flex-col">
+  <!-- Header -->
+  <header class="bg-surface border-b border-neutral/20 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <h1 class="text-xl font-semibold">Angular Material + Tailwind Demo</h1>
+        <div class="flex items-center space-x-4">
+          <span class="text-sm text-text/70">Theme System</span>
+        </div>
+      </div>
+    </div>
   </header>
-  <main class="app-main">
+
+  <!-- Main Content -->
+  <main class="flex-1">
     <app-theme-demo></app-theme-demo>
   </main>
-  <footer class="app-footer">
-    <p>&copy; 2024 Better in Binary. Built with Angular.</p>
+
+  <!-- Footer -->
+  <footer class="bg-surface border-t border-neutral/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <p class="text-center text-sm text-text/70">
+        &copy; 2024 Better in Binary. Built with Angular Material + Tailwind CSS.
+      </p>
+    </div>
   </footer>
 </div> 

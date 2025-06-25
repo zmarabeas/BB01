@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
-    "./projects/**/*.{html,ts}",
+    "./projects/**/*.{html,ts}"
   ],
   theme: {
     extend: {
@@ -182,4 +182,7 @@ module.exports = {
     },
   },
   plugins: [],
+  corePlugins: {
+    preflight: false, // Prevents conflicts with Angular Material
+  }
 } 
