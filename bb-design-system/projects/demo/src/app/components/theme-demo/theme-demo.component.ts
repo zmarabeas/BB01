@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ThemeService } from '@bb/foundation';
 // Angular Material modules
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -35,8 +35,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { ThemeService } from '../../services/theme.service';
-import { ThemeName } from '../../interfaces/theme.interface';
 
 @Component({
   selector: 'app-theme-demo',
@@ -51,7 +49,6 @@ import { ThemeName } from '../../interfaces/theme.interface';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatSlideToggleModule,
     MatTabsModule,
     MatTableModule,
     MatCheckboxModule,
@@ -84,13 +81,8 @@ import { ThemeName } from '../../interfaces/theme.interface';
   styleUrls: ['./theme-demo.component.scss']
 })
 export class ThemeDemoComponent {
-  private themeService = inject(ThemeService);
   private fb = inject(FormBuilder);
-
-  // Theme management
-  currentTheme = this.themeService.currentTheme;
-  isDarkMode = this.themeService.isDarkMode;
-  allThemes = this.themeService.getAllThemes();
+  private themeService = inject(ThemeService);
 
   // Form groups for stepper
   firstFormGroup: FormGroup = this.fb.group({
@@ -134,32 +126,4 @@ export class ThemeDemoComponent {
   selectedDate: Date | null = null;
   selectedTags: string[] = [];
   sliderValue = 50;
-
-  // Methods
-  changeTheme(themeName: ThemeName): void {
-    this.themeService.changeTheme(themeName);
-  }
-
-  toggleDarkMode(): void {
-    this.themeService.toggleDarkMode();
-  }
-
-  getCurrentThemeName(): string {
-    return this.themeService.getCurrentTheme().displayName;
-  }
-
-  getThemeGradient(): string {
-    const theme = this.themeService.getCurrentTheme();
-    const isDark = this.themeService.isDarkMode();
-    
-    if (isDark) {
-      // Dark mode gradient using theme colors with darker variants
-      const primaryColor = theme.colors.primaryDark || theme.colors.primary;
-      const secondaryColor = theme.colors.secondaryDark || theme.colors.secondary;
-      return `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`;
-    } else {
-      // Light mode gradient using theme colors
-      return `linear-gradient(135deg, ${theme.colors.primary}, ${theme.colors.secondary})`;
-    }
-  }
 } 

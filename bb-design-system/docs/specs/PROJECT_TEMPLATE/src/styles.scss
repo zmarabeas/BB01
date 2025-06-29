@@ -1,0 +1,106 @@
+// Global styles for B01 Foundation Template
+
+// Import Tailwind CSS
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Import B01 Foundation (when available as package)
+// @import '@bb/foundation/styles/foundation';
+
+// For development, import foundation styles from relative path
+// Update this import to match your foundation setup
+@import '../../../bb-design-system/projects/demo/src/styles.scss';
+
+// Import project-specific styles
+@import './app/styles/variables';
+@import './app/styles/overrides';
+@import './app/styles/components';
+
+// Base HTML and body styles
+html {
+  font-family: var(--bb-font-family-sans);
+  line-height: var(--bb-leading-normal);
+  color: var(--bb-text);
+  background-color: var(--bb-background);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  // Ensure consistent box-sizing
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+}
+
+// Utility classes for common patterns
+.container {
+  max-width: var(--bb-breakpoint-xl);
+  margin: 0 auto;
+  padding: 0 var(--bb-space-4);
+  
+  @media (min-width: var(--bb-breakpoint-md)) {
+    padding: 0 var(--bb-space-6);
+  }
+  
+  @media (min-width: var(--bb-breakpoint-lg)) {
+    padding: 0 var(--bb-space-8);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Responsive utilities
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: calc(var(--bb-breakpoint-md) - 1px)) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: var(--bb-breakpoint-md)) {
+  .hidden-desktop {
+    display: none !important;
+  }
+}
+
+// Focus outline styles for better accessibility
+:focus-visible {
+  outline: 2px solid var(--bb-primary);
+  outline-offset: 2px;
+  border-radius: var(--bb-radius-sm);
+}
+
+// Skip link for accessibility
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--bb-primary);
+  color: var(--bb-surface);
+  padding: var(--bb-space-2) var(--bb-space-3);
+  border-radius: var(--bb-radius-md);
+  text-decoration: none;
+  z-index: 1000;
+  
+  &:focus {
+    top: 6px;
+  }
+}

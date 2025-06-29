@@ -1,0 +1,27 @@
+{
+  "name": "@bb/foundation",
+  "version": "1.0.0",
+  "description": "B01 Material Design theme foundation for Angular applications",
+  "keywords": ["angular", "material-design", "theme", "foundation", "css-custom-properties"],
+  "author": "B01 Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/b01-foundation.git"
+  },
+  "homepage": "https://github.com/your-org/b01-foundation#readme",
+  "peerDependencies": {
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/material": "^19.0.0",
+    "@angular/cdk": "^19.0.0",
+    "@angular/animations": "^19.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": [
+    "*.scss",
+    "*.css"
+  ]
+}

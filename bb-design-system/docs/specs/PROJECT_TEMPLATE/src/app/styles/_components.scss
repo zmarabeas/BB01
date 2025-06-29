@@ -1,0 +1,221 @@
+// Project-specific component styles
+// Styles for custom components and component combinations
+
+// Layout components
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  height: var(--project-header-height);
+  background-color: var(--bb-surface);
+  border-bottom: 1px solid var(--bb-outline);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--bb-space-6);
+  position: sticky;
+  top: 0;
+  z-index: var(--project-z-header);
+}
+
+.app-sidebar {
+  width: var(--project-sidebar-width);
+  background-color: var(--bb-surface);
+  border-right: 1px solid var(--bb-outline);
+  transition: width #{$project-animation-normal} ease;
+  
+  &.collapsed {
+    width: var(--project-sidebar-collapsed-width);
+  }
+}
+
+.app-main {
+  flex: 1;
+  padding: var(--bb-space-6);
+  background-color: var(--bb-background);
+}
+
+// Button variants
+.btn-project-brand {
+  background-color: var(--project-brand);
+  color: white;
+  border: none;
+  padding: var(--bb-space-3) var(--bb-space-4);
+  border-radius: var(--bb-radius-md);
+  font-weight: var(--bb-font-medium);
+  cursor: pointer;
+  transition: all #{$project-animation-normal} ease;
+  
+  &:hover {
+    background-color: color-mix(in srgb, var(--project-brand) 85%, black);
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.btn-project-accent {
+  background-color: var(--project-accent);
+  color: white;
+  border: none;
+  padding: var(--bb-space-3) var(--bb-space-4);
+  border-radius: var(--bb-radius-md);
+  font-weight: var(--bb-font-medium);
+  cursor: pointer;
+  transition: all #{$project-animation-normal} ease;
+  
+  &:hover {
+    background-color: color-mix(in srgb, var(--project-accent) 85%, black);
+    transform: translateY(-1px);
+  }
+}
+
+// Form components
+.project-form-group {
+  margin-bottom: var(--bb-space-4);
+  
+  label {
+    display: block;
+    font-weight: var(--bb-font-medium);
+    color: var(--bb-text);
+    margin-bottom: var(--bb-space-2);
+    
+    .required {
+      color: var(--bb-error);
+    }
+  }
+  
+  .form-help {
+    font-size: var(--bb-text-sm);
+    color: var(--bb-text-secondary);
+    margin-top: var(--bb-space-1);
+  }
+  
+  .form-error {
+    font-size: var(--bb-text-sm);
+    color: var(--bb-error);
+    margin-top: var(--bb-space-1);
+  }
+}
+
+// Navigation components
+.project-nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  .nav-item {
+    margin-bottom: var(--bb-space-1);
+    
+    .nav-link {
+      display: flex;
+      align-items: center;
+      padding: var(--bb-space-3) var(--bb-space-4);
+      color: var(--bb-text);
+      text-decoration: none;
+      border-radius: var(--bb-radius-md);
+      transition: all #{$project-animation-fast} ease;
+      
+      &:hover {
+        background-color: var(--bb-surface-light);
+      }
+      
+      &.active {
+        background-color: var(--project-brand);
+        color: white;
+      }
+      
+      .nav-icon {
+        margin-right: var(--bb-space-3);
+        font-size: 1.2em;
+      }
+      
+      .nav-text {
+        flex: 1;
+      }
+    }
+  }
+}
+
+// Status indicators
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--bb-space-1) var(--bb-space-2);
+  border-radius: var(--bb-radius-full);
+  font-size: var(--bb-text-xs);
+  font-weight: var(--bb-font-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  &.status-success {
+    background-color: color-mix(in srgb, var(--bb-success) 20%, transparent);
+    color: var(--bb-success);
+  }
+  
+  &.status-warning {
+    background-color: color-mix(in srgb, var(--bb-warning) 20%, transparent);
+    color: var(--bb-warning);
+  }
+  
+  &.status-error {
+    background-color: color-mix(in srgb, var(--bb-error) 20%, transparent);
+    color: var(--bb-error);
+  }
+  
+  &.status-info {
+    background-color: color-mix(in srgb, var(--bb-info) 20%, transparent);
+    color: var(--bb-info);
+  }
+}
+
+// Loading states
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--bb-outline);
+  border-radius: 50%;
+  border-top-color: var(--project-brand);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive utilities
+@media (max-width: calc(var(--bb-breakpoint-md) - 1px)) {
+  .app-header {
+    padding: 0 var(--bb-space-4);
+  }
+  
+  .app-main {
+    padding: var(--bb-space-4);
+  }
+  
+  .app-sidebar {
+    position: fixed;
+    left: -100%;
+    top: var(--project-header-height);
+    height: calc(100vh - var(--project-header-height));
+    z-index: var(--project-z-sidebar);
+    transition: left #{$project-animation-normal} ease;
+    
+    &.open {
+      left: 0;
+    }
+  }
+}

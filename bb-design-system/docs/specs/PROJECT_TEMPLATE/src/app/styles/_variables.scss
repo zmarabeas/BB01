@@ -1,0 +1,43 @@
+// Project-specific SCSS variables
+// These variables can be used in component styles throughout the project
+
+// Project brand colors (override foundation defaults)
+$project-primary: #6366f1;
+$project-secondary: #64748b;
+$project-accent: #f59e0b;
+$project-success: #10b981;
+$project-warning: #f59e0b;
+$project-error: #ef4444;
+$project-info: #06b6d4;
+
+// Project-specific spacing (if different from foundation)
+$project-header-height: 64px;
+$project-sidebar-width: 280px;
+$project-sidebar-collapsed-width: 72px;
+
+// Project typography
+$project-heading-font-weight: 600;
+$project-body-font-weight: 400;
+
+// Project layout
+$project-max-content-width: 1400px;
+$project-page-padding: 24px;
+
+// Project shadows
+$project-card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+$project-elevated-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+// Project borders
+$project-border-radius: 8px;
+$project-border-width: 1px;
+
+// Animation durations
+$project-animation-fast: 150ms;
+$project-animation-normal: 200ms;
+$project-animation-slow: 300ms;
+
+// Z-index scale
+$project-z-header: 100;
+$project-z-sidebar: 90;
+$project-z-modal: 1000;
+$project-z-tooltip: 1100;

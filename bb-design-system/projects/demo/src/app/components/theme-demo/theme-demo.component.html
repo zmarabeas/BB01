@@ -1,41 +1,16 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
   
-  <!-- Theme Controls Header -->
-  <div class="bg-surface rounded-lg border border-neutral/20 p-6 mb-8">
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <div class="flex-1 max-w-xs">
-        <mat-form-field appearance="outline" class="w-full">
-          <mat-label>Theme</mat-label>
-          <mat-select [value]="currentTheme()" (selectionChange)="changeTheme($event.value)">
-            <mat-option *ngFor="let theme of allThemes" [value]="theme.name">
-              {{ theme.displayName }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      
-      <div class="flex items-center">
-        <mat-slide-toggle 
-          [checked]="isDarkMode()" 
-          (change)="toggleDarkMode()"
-          class="mr-2">
-        </mat-slide-toggle>
-        <span class="text-sm font-medium">🌙 Dark Mode</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Current Theme Display -->
+  <!-- Header -->
   <div class="text-center mb-12">
-    <h2 class="text-3xl font-bold mb-4">Current Theme: {{ getCurrentThemeName() }}</h2>
-    <p class="text-lg text-text/70 max-w-2xl mx-auto">
-      Explore Angular Material components with beautiful, switchable themes. 
-      Each theme brings a unique color palette and personality to your interface.
+    <h2 class="text-3xl font-bold mb-4">Angular Material Design System</h2>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      Explore Angular Material components with a modern, consistent design system. 
+      Built with clean typography and thoughtful spacing.
     </p>
   </div>
 
   <!-- Component Tabs -->
-  <mat-tab-group class="bg-surface rounded-lg border border-neutral/20 shadow-sm">
+  <mat-tab-group class="bg-white rounded-lg border border-gray-200 shadow-sm">
     
     <!-- Buttons & Actions Tab -->
     <mat-tab label="Buttons & Actions">
@@ -71,17 +46,58 @@
             <p class="text-text/70 mb-4">Toggle button groups for multiple selections</p>
           </div>
           
-          <mat-button-toggle-group>
-            <mat-button-toggle value="left">
-              <mat-icon>format_align_left</mat-icon>
-            </mat-button-toggle>
-            <mat-button-toggle value="center">
-              <mat-icon>format_align_center</mat-icon>
-            </mat-button-toggle>
-            <mat-button-toggle value="right">
-              <mat-icon>format_align_right</mat-icon>
-            </mat-button-toggle>
-          </mat-button-toggle-group>
+          <div class="space-y-4">
+            <!-- Icon-only toggles -->
+            <div>
+              <h4 class="font-medium mb-2">Icon Toggles</h4>
+              <mat-button-toggle-group>
+                <mat-button-toggle value="left">
+                  <mat-icon>format_align_left</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="center">
+                  <mat-icon>format_align_center</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="right">
+                  <mat-icon>format_align_right</mat-icon>
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+            
+            <!-- Text toggles -->
+            <div>
+              <h4 class="font-medium mb-2">Text Toggles</h4>
+              <mat-button-toggle-group>
+                <mat-button-toggle value="day">
+                  <span>Day</span>
+                </mat-button-toggle>
+                <mat-button-toggle value="week">
+                  <span>Week</span>
+                </mat-button-toggle>
+                <mat-button-toggle value="month">
+                  <span>Month</span>
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+            
+            <!-- Icon + Text toggles -->
+            <div>
+              <h4 class="font-medium mb-2">Icon + Text Toggles</h4>
+              <mat-button-toggle-group>
+                <mat-button-toggle value="list">
+                  <mat-icon>view_list</mat-icon>
+                  <span>List</span>
+                </mat-button-toggle>
+                <mat-button-toggle value="grid">
+                  <mat-icon>grid_view</mat-icon>
+                  <span>Grid</span>
+                </mat-button-toggle>
+                <mat-button-toggle value="table">
+                  <mat-icon>table_view</mat-icon>
+                  <span>Table</span>
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+          </div>
         </div>
 
       </div>

@@ -1,0 +1,334 @@
+// ============================================================================
+// B01 Foundation - Typography Tokens
+// ============================================================================
+
+// Font Families
+$bb-font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$bb-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+$bb-font-family-display: 'Inter', sans-serif;
+
+// Font Weights
+$bb-font-weight-thin: 100;
+$bb-font-weight-extralight: 200;
+$bb-font-weight-light: 300;
+$bb-font-weight-normal: 400;
+$bb-font-weight-medium: 500;
+$bb-font-weight-semibold: 600;
+$bb-font-weight-bold: 700;
+$bb-font-weight-extrabold: 800;
+$bb-font-weight-black: 900;
+
+// Font Sizes (based on modular scale 1.25)
+$bb-font-size-xs: 0.75rem;    // 12px
+$bb-font-size-sm: 0.875rem;   // 14px
+$bb-font-size-base: 1rem;     // 16px
+$bb-font-size-lg: 1.125rem;   // 18px
+$bb-font-size-xl: 1.25rem;    // 20px
+$bb-font-size-2xl: 1.5rem;    // 24px
+$bb-font-size-3xl: 1.875rem;  // 30px
+$bb-font-size-4xl: 2.25rem;   // 36px
+$bb-font-size-5xl: 3rem;      // 48px
+$bb-font-size-6xl: 3.75rem;   // 60px
+$bb-font-size-7xl: 4.5rem;    // 72px
+$bb-font-size-8xl: 6rem;      // 96px
+$bb-font-size-9xl: 8rem;      // 128px
+
+// Line Heights
+$bb-line-height-none: 1;
+$bb-line-height-tight: 1.25;
+$bb-line-height-snug: 1.375;
+$bb-line-height-normal: 1.5;
+$bb-line-height-relaxed: 1.625;
+$bb-line-height-loose: 2;
+
+// Letter Spacing
+$bb-letter-spacing-tighter: -0.05em;
+$bb-letter-spacing-tight: -0.025em;
+$bb-letter-spacing-normal: 0;
+$bb-letter-spacing-wide: 0.025em;
+$bb-letter-spacing-wider: 0.05em;
+$bb-letter-spacing-widest: 0.1em;
+
+// Typography Scale Definitions
+// These combine font size, line height, and letter spacing for consistent text styles
+
+// Display Text (for large headings, hero text)
+$bb-typography-display-large: (
+  font-size: $bb-font-size-6xl,
+  line-height: $bb-line-height-none,
+  letter-spacing: $bb-letter-spacing-tight,
+  font-weight: $bb-font-weight-extrabold
+);
+
+$bb-typography-display-medium: (
+  font-size: $bb-font-size-5xl,
+  line-height: $bb-line-height-none,
+  letter-spacing: $bb-letter-spacing-tight,
+  font-weight: $bb-font-weight-bold
+);
+
+$bb-typography-display-small: (
+  font-size: $bb-font-size-4xl,
+  line-height: $bb-line-height-tight,
+  letter-spacing: $bb-letter-spacing-normal,
+  font-weight: $bb-font-weight-bold
+);
+
+// Headings
+$bb-typography-headline-large: (
+  font-size: $bb-font-size-3xl,
+  line-height: $bb-line-height-tight,
+  letter-spacing: $bb-letter-spacing-normal,
+  font-weight: $bb-font-weight-semibold
+);
+
+$bb-typography-headline-medium: (
+  font-size: $bb-font-size-2xl,
+  line-height: $bb-line-height-snug,
+  letter-spacing: $bb-letter-spacing-normal,
+  font-weight: $bb-font-weight-semibold
+);
+
+$bb-typography-headline-small: (
+  font-size: $bb-font-size-xl,
+  line-height: $bb-line-height-snug,
+  letter-spacing: $bb-letter-spacing-normal,
+  font-weight: $bb-font-weight-medium
+);
+
+// Titles
+$bb-typography-title-large: (
+  font-size: $bb-font-size-lg,
+  line-height: $bb-line-height-normal,
+  letter-spacing: $bb-letter-spacing-normal,
+  font-weight: $bb-font-weight-medium
+);
+
+$bb-typography-title-medium: (
+  font-size: $bb-font-size-base,
+  line-height: $bb-line-height-normal,
+  letter-spacing: $bb-letter-spacing-wide,
+  font-weight: $bb-font-weight-medium
+);
+
+$bb-typography-title-small: (
+  font-size: $bb-font-size-sm,
+  line-height: $bb-line-height-normal,
+  letter-spacing: $bb-letter-spacing-wide,
+  font-weight: $bb-font-weight-medium
+);
+
+// Body Text
+$bb-typography-body-large: (
+  font-size: $bb-font-size-base,
+  line-height: $bb-line-height-relaxed,
+  letter-spacing: $bb-letter-spacing-normal,
+  font-weight: $bb-font-weight-normal
+);
+
+$bb-typography-body-medium: (
+  font-size: $bb-font-size-sm,
+  line-height: $bb-line-height-normal,
+  letter-spacing: $bb-letter-spacing-normal,
+  font-weight: $bb-font-weight-normal
+);
+
+$bb-typography-body-small: (
+  font-size: $bb-font-size-xs,
+  line-height: $bb-line-height-normal,
+  letter-spacing: $bb-letter-spacing-normal,
+  font-weight: $bb-font-weight-normal
+);
+
+// Labels and UI Text
+$bb-typography-label-large: (
+  font-size: $bb-font-size-sm,
+  line-height: $bb-line-height-normal,
+  letter-spacing: $bb-letter-spacing-wide,
+  font-weight: $bb-font-weight-medium
+);
+
+$bb-typography-label-medium: (
+  font-size: $bb-font-size-xs,
+  line-height: $bb-line-height-normal,
+  letter-spacing: $bb-letter-spacing-wide,
+  font-weight: $bb-font-weight-medium
+);
+
+$bb-typography-label-small: (
+  font-size: 0.6875rem, // 11px
+  line-height: $bb-line-height-tight,
+  letter-spacing: $bb-letter-spacing-wider,
+  font-weight: $bb-font-weight-medium
+);
+
+// CSS Custom Properties
+:root {
+  // Font families
+  --bb-font-family-sans: #{$bb-font-family-sans};
+  --bb-font-family-mono: #{$bb-font-family-mono};
+  --bb-font-family-display: #{$bb-font-family-display};
+  
+  // Font weights
+  --bb-font-weight-thin: #{$bb-font-weight-thin};
+  --bb-font-weight-extralight: #{$bb-font-weight-extralight};
+  --bb-font-weight-light: #{$bb-font-weight-light};
+  --bb-font-weight-normal: #{$bb-font-weight-normal};
+  --bb-font-weight-medium: #{$bb-font-weight-medium};
+  --bb-font-weight-semibold: #{$bb-font-weight-semibold};
+  --bb-font-weight-bold: #{$bb-font-weight-bold};
+  --bb-font-weight-extrabold: #{$bb-font-weight-extrabold};
+  --bb-font-weight-black: #{$bb-font-weight-black};
+  
+  // Font sizes
+  --bb-text-xs: #{$bb-font-size-xs};
+  --bb-text-sm: #{$bb-font-size-sm};
+  --bb-text-base: #{$bb-font-size-base};
+  --bb-text-lg: #{$bb-font-size-lg};
+  --bb-text-xl: #{$bb-font-size-xl};
+  --bb-text-2xl: #{$bb-font-size-2xl};
+  --bb-text-3xl: #{$bb-font-size-3xl};
+  --bb-text-4xl: #{$bb-font-size-4xl};
+  --bb-text-5xl: #{$bb-font-size-5xl};
+  --bb-text-6xl: #{$bb-font-size-6xl};
+  --bb-text-7xl: #{$bb-font-size-7xl};
+  --bb-text-8xl: #{$bb-font-size-8xl};
+  --bb-text-9xl: #{$bb-font-size-9xl};
+  
+  // Line heights
+  --bb-leading-none: #{$bb-line-height-none};
+  --bb-leading-tight: #{$bb-line-height-tight};
+  --bb-leading-snug: #{$bb-line-height-snug};
+  --bb-leading-normal: #{$bb-line-height-normal};
+  --bb-leading-relaxed: #{$bb-line-height-relaxed};
+  --bb-leading-loose: #{$bb-line-height-loose};
+  
+  // Letter spacing
+  --bb-tracking-tighter: #{$bb-letter-spacing-tighter};
+  --bb-tracking-tight: #{$bb-letter-spacing-tight};
+  --bb-tracking-normal: #{$bb-letter-spacing-normal};
+  --bb-tracking-wide: #{$bb-letter-spacing-wide};
+  --bb-tracking-wider: #{$bb-letter-spacing-wider};
+  --bb-tracking-widest: #{$bb-letter-spacing-widest};
+}
+
+// Typography Utility Classes
+.bb-display-large {
+  font-family: var(--bb-font-family-display);
+  font-size: var(--bb-text-6xl);
+  line-height: var(--bb-leading-none);
+  letter-spacing: var(--bb-tracking-tight);
+  font-weight: var(--bb-font-weight-extrabold);
+}
+
+.bb-display-medium {
+  font-family: var(--bb-font-family-display);
+  font-size: var(--bb-text-5xl);
+  line-height: var(--bb-leading-none);
+  letter-spacing: var(--bb-tracking-tight);
+  font-weight: var(--bb-font-weight-bold);
+}
+
+.bb-display-small {
+  font-family: var(--bb-font-family-display);
+  font-size: var(--bb-text-4xl);
+  line-height: var(--bb-leading-tight);
+  letter-spacing: var(--bb-tracking-normal);
+  font-weight: var(--bb-font-weight-bold);
+}
+
+.bb-headline-large {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-3xl);
+  line-height: var(--bb-leading-tight);
+  letter-spacing: var(--bb-tracking-normal);
+  font-weight: var(--bb-font-weight-semibold);
+}
+
+.bb-headline-medium {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-2xl);
+  line-height: var(--bb-leading-snug);
+  letter-spacing: var(--bb-tracking-normal);
+  font-weight: var(--bb-font-weight-semibold);
+}
+
+.bb-headline-small {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-xl);
+  line-height: var(--bb-leading-snug);
+  letter-spacing: var(--bb-tracking-normal);
+  font-weight: var(--bb-font-weight-medium);
+}
+
+.bb-title-large {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-lg);
+  line-height: var(--bb-leading-normal);
+  letter-spacing: var(--bb-tracking-normal);
+  font-weight: var(--bb-font-weight-medium);
+}
+
+.bb-title-medium {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-base);
+  line-height: var(--bb-leading-normal);
+  letter-spacing: var(--bb-tracking-wide);
+  font-weight: var(--bb-font-weight-medium);
+}
+
+.bb-title-small {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-sm);
+  line-height: var(--bb-leading-normal);
+  letter-spacing: var(--bb-tracking-wide);
+  font-weight: var(--bb-font-weight-medium);
+}
+
+.bb-body-large {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-base);
+  line-height: var(--bb-leading-relaxed);
+  letter-spacing: var(--bb-tracking-normal);
+  font-weight: var(--bb-font-weight-normal);
+}
+
+.bb-body-medium {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-sm);
+  line-height: var(--bb-leading-normal);
+  letter-spacing: var(--bb-tracking-normal);
+  font-weight: var(--bb-font-weight-normal);
+}
+
+.bb-body-small {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-xs);
+  line-height: var(--bb-leading-normal);
+  letter-spacing: var(--bb-tracking-normal);
+  font-weight: var(--bb-font-weight-normal);
+}
+
+.bb-label-large {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-sm);
+  line-height: var(--bb-leading-normal);
+  letter-spacing: var(--bb-tracking-wide);
+  font-weight: var(--bb-font-weight-medium);
+}
+
+.bb-label-medium {
+  font-family: var(--bb-font-family-sans);
+  font-size: var(--bb-text-xs);
+  line-height: var(--bb-leading-normal);
+  letter-spacing: var(--bb-tracking-wide);
+  font-weight: var(--bb-font-weight-medium);
+}
+
+.bb-label-small {
+  font-family: var(--bb-font-family-sans);
+  font-size: 0.6875rem;
+  line-height: var(--bb-leading-tight);
+  letter-spacing: var(--bb-tracking-wider);
+  font-weight: var(--bb-font-weight-medium);
+}

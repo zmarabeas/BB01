@@ -1,0 +1,617 @@
+// ============================================================================
+// B01 Foundation - Material Design Component Theming
+// ============================================================================
+
+// This file contains systematic theming for all Angular Material components
+// to ensure they work seamlessly with the B01 foundation theme system
+
+// Import Material theming functions
+@use '@angular/material' as mat;
+
+// Base Material theme configuration
+// This will be customized by the ThemeService at runtime via CSS custom properties
+
+// Button Theming
+// ============================================================================
+.mat-mdc-raised-button {
+  &.mat-primary {
+    --mdc-protected-button-container-color: var(--bb-primary);
+    --mdc-protected-button-label-text-color: var(--bb-surface);
+    
+    &:hover {
+      --mdc-protected-button-container-color: var(--bb-primaryDark);
+      box-shadow: var(--bb-glow-primary);
+    }
+    
+    &:focus {
+      --mdc-protected-button-focus-state-layer-color: var(--bb-primary);
+    }
+  }
+  
+  &.mat-accent {
+    --mdc-protected-button-container-color: var(--bb-secondary);
+    --mdc-protected-button-label-text-color: var(--bb-text);
+    
+    &:hover {
+      --mdc-protected-button-container-color: var(--bb-secondaryDark);
+    }
+  }
+  
+  &.mat-warn {
+    --mdc-protected-button-container-color: var(--bb-error);
+    --mdc-protected-button-label-text-color: var(--bb-surface);
+    
+    &:hover {
+      --mdc-protected-button-container-color: var(--bb-error-dark);
+    }
+  }
+}
+
+.mat-mdc-outlined-button {
+  &.mat-primary {
+    --mdc-outlined-button-outline-color: var(--bb-primary);
+    --mdc-outlined-button-label-text-color: var(--bb-primary);
+    
+    &:hover {
+      --mdc-outlined-button-hover-state-layer-color: var(--bb-primary);
+      --mdc-outlined-button-hover-state-layer-opacity: 0.08;
+      background-color: color-mix(in srgb, var(--bb-primary) 8%, transparent);
+    }
+    
+    &:focus {
+      --mdc-outlined-button-focus-outline-color: var(--bb-primary);
+    }
+  }
+  
+  &.mat-accent {
+    --mdc-outlined-button-outline-color: var(--bb-secondary);
+    --mdc-outlined-button-label-text-color: var(--bb-secondary);
+    
+    &:hover {
+      --mdc-outlined-button-hover-state-layer-color: var(--bb-secondary);
+      background-color: color-mix(in srgb, var(--bb-secondary) 8%, transparent);
+    }
+  }
+}
+
+.mat-mdc-text-button {
+  &.mat-primary {
+    --mdc-text-button-label-text-color: var(--bb-primary);
+    
+    &:hover {
+      --mdc-text-button-hover-state-layer-color: var(--bb-primary);
+      background-color: color-mix(in srgb, var(--bb-primary) 8%, transparent);
+    }
+  }
+}
+
+.mat-mdc-fab {
+  &.mat-primary {
+    --mdc-fab-container-color: var(--bb-primary);
+    --mdc-fab-icon-color: var(--bb-surface);
+    
+    &:hover {
+      box-shadow: var(--bb-glow-primary);
+    }
+  }
+}
+
+// Form Field Theming
+// ============================================================================
+.mat-mdc-form-field {
+  // Outline appearance
+  &.mat-form-field-appearance-outline {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: var(--bb-outline);
+      border-width: var(--bb-border-1);
+    }
+    
+    &.mat-focused {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: var(--bb-primary);
+        border-width: var(--bb-border-2);
+      }
+    }
+    
+    &.mat-form-field-invalid {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: var(--bb-error);
+      }
+    }
+  }
+  
+  // Fill appearance
+  &.mat-form-field-appearance-fill {
+    .mdc-text-field--filled {
+      background-color: var(--bb-surfaceLight);
+      
+      &:hover {
+        background-color: var(--bb-surface);
+      }
+    }
+    
+    &.mat-focused .mdc-text-field--filled {
+      background-color: var(--bb-surface);
+    }
+  }
+  
+  // Label theming
+  .mat-mdc-form-field-label {
+    color: var(--bb-textSecondary);
+    
+    &.mdc-floating-label--float-above {
+      color: var(--bb-primary);
+    }
+  }
+  
+  // Input theming
+  .mat-mdc-input-element {
+    color: var(--bb-text);
+    caret-color: var(--bb-primary);
+    
+    &::placeholder {
+      color: var(--bb-textDisabled);
+    }
+  }
+  
+  // Helper text
+  .mat-mdc-form-field-hint {
+    color: var(--bb-textSecondary);
+  }
+  
+  // Error text
+  .mat-mdc-form-field-error {
+    color: var(--bb-error);
+  }
+}
+
+// Select Theming
+// ============================================================================
+.mat-mdc-select {
+  .mat-mdc-select-trigger {
+    color: var(--bb-text);
+  }
+  
+  .mat-mdc-select-arrow {
+    color: var(--bb-textSecondary);
+  }
+  
+  &.mat-focused .mat-mdc-select-arrow {
+    color: var(--bb-primary);
+  }
+}
+
+.mat-mdc-select-panel {
+  background-color: var(--bb-surface);
+  border: var(--bb-border-1) solid var(--bb-outline);
+  border-radius: var(--bb-radius-md);
+  box-shadow: var(--bb-dropdown-shadow);
+}
+
+.mat-mdc-option {
+  color: var(--bb-text);
+  
+  &:hover {
+    background-color: var(--bb-hover);
+  }
+  
+  &.mdc-list-item--selected {
+    background-color: color-mix(in srgb, var(--bb-primary) 12%, transparent);
+    color: var(--bb-primary);
+  }
+  
+  &.mat-mdc-option-active {
+    background-color: var(--bb-surfaceLight);
+  }
+}
+
+// Checkbox and Radio Theming
+// ============================================================================
+.mat-mdc-checkbox {
+  .mdc-checkbox__native-control:checked ~ .mdc-checkbox__background {
+    background-color: var(--bb-primary);
+    border-color: var(--bb-primary);
+  }
+  
+  .mdc-checkbox__native-control:indeterminate ~ .mdc-checkbox__background {
+    background-color: var(--bb-primary);
+    border-color: var(--bb-primary);
+  }
+  
+  .mdc-checkbox__native-control ~ .mdc-checkbox__background {
+    border-color: var(--bb-outline);
+  }
+  
+  .mdc-checkbox__native-control:focus ~ .mdc-checkbox__background {
+    border-color: var(--bb-primary);
+  }
+  
+  .mdc-checkbox__checkmark {
+    color: var(--bb-surface);
+  }
+  
+  .mdc-checkbox__mixedmark {
+    border-color: var(--bb-surface);
+  }
+}
+
+.mat-mdc-radio-button {
+  .mdc-radio__native-control:checked + .mdc-radio__background .mdc-radio__outer-circle {
+    border-color: var(--bb-primary);
+  }
+  
+  .mdc-radio__native-control:checked + .mdc-radio__background .mdc-radio__inner-circle {
+    border-color: var(--bb-primary);
+    background-color: var(--bb-primary);
+  }
+  
+  .mdc-radio__native-control + .mdc-radio__background .mdc-radio__outer-circle {
+    border-color: var(--bb-outline);
+  }
+  
+  .mdc-radio__native-control:focus + .mdc-radio__background .mdc-radio__outer-circle {
+    border-color: var(--bb-primary);
+  }
+}
+
+// Slider Theming
+// ============================================================================
+.mat-mdc-slider {
+  .mdc-slider__track--active_fill {
+    background-color: var(--bb-primary);
+  }
+  
+  .mdc-slider__track--inactive {
+    background-color: var(--bb-outline);
+  }
+  
+  .mdc-slider__thumb {
+    background-color: var(--bb-primary);
+    border-color: var(--bb-primary);
+  }
+  
+  .mdc-slider__thumb:hover {
+    box-shadow: var(--bb-glow-primary);
+  }
+}
+
+// Card Theming
+// ============================================================================
+.mat-mdc-card {
+  --mdc-elevated-card-container-color: var(--bb-surface);
+  --mdc-elevated-card-container-shadow: var(--bb-card-shadow);
+  background-color: var(--bb-surface);
+  border: var(--bb-border-1) solid var(--bb-outline);
+  border-radius: var(--bb-radius-lg);
+  
+  &:hover {
+    box-shadow: var(--bb-card-shadow-hover);
+    transform: translateY(-2px);
+    transition: var(--bb-card-transition);
+  }
+  
+  .mat-mdc-card-header .mat-mdc-card-title {
+    color: var(--bb-text);
+  }
+  
+  .mat-mdc-card-header .mat-mdc-card-subtitle {
+    color: var(--bb-textSecondary);
+  }
+  
+  .mat-mdc-card-content {
+    color: var(--bb-text);
+  }
+}
+
+// Tab Theming
+// ============================================================================
+.mat-mdc-tab-group {
+  --mdc-secondary-navigation-tab-container-color: var(--bb-surface);
+  background-color: var(--bb-surface);
+  
+  .mat-mdc-tab-header {
+    border-bottom: var(--bb-border-1) solid var(--bb-outline);
+  }
+  
+  .mat-mdc-tab {
+    --mdc-secondary-navigation-tab-label-text-color: var(--bb-textSecondary);
+    
+    &:hover {
+      background-color: var(--bb-hover);
+    }
+    
+    &.mdc-tab--active {
+      --mdc-secondary-navigation-tab-label-text-color: var(--bb-primary);
+      
+      .mdc-tab-indicator__content--underline {
+        background-color: var(--bb-primary);
+        height: 3px;
+      }
+    }
+  }
+  
+  .mat-mdc-tab-body-content {
+    background-color: var(--bb-surface);
+  }
+}
+
+// Toolbar Theming
+// ============================================================================
+.mat-toolbar {
+  background-color: var(--bb-surface);
+  color: var(--bb-text);
+  border-bottom: var(--bb-border-1) solid var(--bb-outline);
+  
+  &.mat-primary {
+    background-color: var(--bb-primary);
+    color: var(--bb-surface);
+  }
+  
+  &.mat-accent {
+    background-color: var(--bb-secondary);
+    color: var(--bb-text);
+  }
+}
+
+// Table Theming
+// ============================================================================
+.mat-mdc-table {
+  background-color: var(--bb-surface);
+  border: var(--bb-border-1) solid var(--bb-outline);
+  border-radius: var(--bb-radius-lg);
+  overflow: hidden;
+  
+  .mat-mdc-header-row {
+    background-color: var(--bb-surfaceLight);
+    border-bottom: var(--bb-border-1) solid var(--bb-outline);
+  }
+  
+  .mat-mdc-header-cell {
+    color: var(--bb-text);
+    font-weight: var(--bb-font-weight-semibold);
+    border-right: var(--bb-border-1) solid var(--bb-outline);
+    
+    &:last-child {
+      border-right: none;
+    }
+  }
+  
+  .mat-mdc-row {
+    border-bottom: var(--bb-border-1) solid var(--bb-outline);
+    
+    &:hover {
+      background-color: var(--bb-hover);
+    }
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  .mat-mdc-cell {
+    color: var(--bb-text);
+    border-right: var(--bb-border-1) solid var(--bb-outline);
+    
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+// Chip Theming
+// ============================================================================
+.mat-mdc-chip {
+  --mdc-chip-container-color: var(--bb-surfaceLight);
+  --mdc-chip-label-text-color: var(--bb-text);
+  --mdc-chip-outline-color: var(--bb-outline);
+  border-radius: var(--bb-radius-full);
+  
+  &.mat-mdc-chip-selected {
+    --mdc-chip-container-color: var(--bb-primary);
+    --mdc-chip-label-text-color: var(--bb-surface);
+  }
+  
+  &.mat-mdc-chip-highlighted {
+    --mdc-chip-container-color: var(--bb-tech);
+    --mdc-chip-label-text-color: var(--bb-surface);
+  }
+  
+  &:hover {
+    box-shadow: var(--bb-shadow-sm);
+  }
+}
+
+// Progress Indicator Theming
+// ============================================================================
+.mat-mdc-progress-bar {
+  .mdc-linear-progress__buffer {
+    background-color: var(--bb-outline);
+  }
+  
+  .mdc-linear-progress__bar-inner {
+    background-color: var(--bb-primary);
+  }
+}
+
+.mat-mdc-progress-spinner {
+  .mdc-circular-progress__determinate-circle,
+  .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: var(--bb-primary);
+  }
+}
+
+// Expansion Panel Theming
+// ============================================================================
+.mat-expansion-panel {
+  background-color: var(--bb-surface);
+  border: var(--bb-border-1) solid var(--bb-outline);
+  border-radius: var(--bb-radius-lg);
+  margin-bottom: var(--bb-space-2);
+  box-shadow: var(--bb-shadow-sm);
+  
+  &:hover {
+    box-shadow: var(--bb-shadow-md);
+  }
+  
+  .mat-expansion-panel-header {
+    color: var(--bb-text);
+    
+    &:hover {
+      background-color: var(--bb-hover);
+    }
+    
+    .mat-expansion-panel-header-title {
+      font-weight: var(--bb-font-weight-medium);
+    }
+    
+    .mat-expansion-panel-header-description {
+      color: var(--bb-textSecondary);
+    }
+  }
+  
+  .mat-expansion-panel-content {
+    color: var(--bb-text);
+  }
+}
+
+// Snackbar Theming
+// ============================================================================
+.mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: var(--bb-neutral-800);
+  --mdc-snackbar-supporting-text-color: var(--bb-surface);
+  border-radius: var(--bb-radius-lg);
+  box-shadow: var(--bb-shadow-xl);
+  
+  &.mat-snack-bar-center {
+    margin: var(--bb-space-4);
+  }
+}
+
+// Dialog Theming
+// ============================================================================
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: var(--bb-surface);
+  border-radius: var(--bb-radius-xl);
+  box-shadow: var(--bb-modal-shadow);
+  
+  .mat-mdc-dialog-title {
+    color: var(--bb-text);
+    font-weight: var(--bb-font-weight-semibold);
+  }
+  
+  .mat-mdc-dialog-content {
+    color: var(--bb-text);
+  }
+}
+
+.cdk-overlay-backdrop {
+  background-color: color-mix(in srgb, var(--bb-neutral-900) 50%, transparent);
+}
+
+// Tooltip Theming
+// ============================================================================
+.mat-mdc-tooltip {
+  --mdc-plain-tooltip-container-color: var(--bb-neutral-800);
+  --mdc-plain-tooltip-supporting-text-color: var(--bb-surface);
+  border-radius: var(--bb-radius-md);
+  font-size: var(--bb-text-sm);
+  box-shadow: var(--bb-tooltip-shadow);
+}
+
+// Menu Theming
+// ============================================================================
+.mat-mdc-menu-panel {
+  background-color: var(--bb-surface);
+  border: var(--bb-border-1) solid var(--bb-outline);
+  border-radius: var(--bb-radius-lg);
+  box-shadow: var(--bb-dropdown-shadow);
+  
+  .mat-mdc-menu-item {
+    color: var(--bb-text);
+    
+    &:hover {
+      background-color: var(--bb-hover);
+    }
+    
+    &.mat-mdc-menu-item-highlighted {
+      background-color: var(--bb-surfaceLight);
+    }
+  }
+}
+
+// Sidenav Theming
+// ============================================================================
+.mat-sidenav {
+  background-color: var(--bb-surface);
+  border-right: var(--bb-border-1) solid var(--bb-outline);
+  color: var(--bb-text);
+}
+
+.mat-sidenav-content {
+  background-color: var(--bb-background);
+}
+
+// List Theming
+// ============================================================================
+.mat-mdc-list {
+  background-color: var(--bb-surface);
+  
+  .mat-mdc-list-item {
+    color: var(--bb-text);
+    
+    &:hover {
+      background-color: var(--bb-hover);
+    }
+    
+    .mat-mdc-list-item-title {
+      color: var(--bb-text);
+    }
+    
+    .mat-mdc-list-item-line {
+      color: var(--bb-textSecondary);
+    }
+  }
+}
+
+// Divider Theming
+// ============================================================================
+.mat-divider {
+  border-top-color: var(--bb-outline);
+  border-right-color: var(--bb-outline);
+}
+
+// Dark Mode Adjustments
+// ============================================================================
+:root.bb-dark {
+  // Enhanced shadows for dark mode
+  .mat-mdc-card {
+    box-shadow: var(--bb-shadow-lg);
+    border-color: var(--bb-outline-variant);
+  }
+  
+  .mat-mdc-dialog-container {
+    box-shadow: var(--bb-shadow-2xl);
+  }
+  
+  // Adjust form field backgrounds
+  .mat-mdc-form-field.mat-form-field-appearance-fill {
+    .mdc-text-field--filled {
+      background-color: var(--bb-surfaceDark);
+    }
+  }
+  
+  // Enhance focus states
+  .mat-mdc-form-field.mat-focused {
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      box-shadow: 0 0 0 1px var(--bb-primary);
+    }
+  }
+}

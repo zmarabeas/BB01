@@ -1,110 +1,197 @@
-# Better in Binary Design System - Documentation
+# BB Foundation Design System - Documentation
 
 ## 📚 **Documentation Overview**
 
-This folder contains comprehensive documentation for the Better in Binary Design System - a standardized Angular Material + Tailwind base project with theme switching capabilities.
+This folder contains comprehensive documentation for the BB Foundation Design System - a powerful Angular Material theming library that provides direct Material component theming without wrapping.
 
-## 📋 **Documentation Files**
+## 📋 **Documentation Structure**
 
-### **Core Documentation**
+### **📖 Core Documentation**
 
-- **[PROJECT_PLAN.md](./PROJECT_PLAN.md)** - Complete project overview, features, and usage instructions
-- **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** - Technical implementation details and architecture
+- **[BB_FOUNDATION_ARCHITECTURE.md](./BB_FOUNDATION_ARCHITECTURE.md)** - Complete system architecture and integration guide
+- **[PROJECT_PLAN.md](./PROJECT_PLAN.md)** - Original project overview and evolution
+- **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** - Technical implementation details
 
-### **Design Guidelines**
+### **📐 Design Guidelines**
 
 - **[DESIGN_TOKENS.md](./DESIGN_TOKENS.md)** - Design token specifications and usage
 - **[COMPONENT_GUIDELINES.md](./COMPONENT_GUIDELINES.md)** - Component design patterns and best practices
+- **[SPACING_SYSTEM.md](./SPACING_SYSTEM.md)** - Spacing and layout guidelines
 
-## 🎯 **What We Built**
+### **📝 Specifications**
 
-A **production-ready Angular base project** that provides:
+- **[specs/](./specs/)** - Detailed specifications for foundation implementation
+  - **[FOUNDATION_SPEC.md](./specs/FOUNDATION_SPEC.md)** - Main architecture specification
+  - **[THEME_SYSTEM_SPEC.md](./specs/THEME_SYSTEM_SPEC.md)** - Technical implementation details
+  - **[IMPLEMENTATION_GUIDE.md](./specs/IMPLEMENTATION_GUIDE.md)** - Developer usage guide
+  - **[CUSTOMIZATION_GUIDE.md](./specs/CUSTOMIZATION_GUIDE.md)** - Theme customization reference
 
-✅ **5 Beautiful Themes** with dark mode support  
-✅ **Complete Material Design** component showcase  
-✅ **Standardized Styling** and spacing  
-✅ **Responsive Design** that works everywhere  
-✅ **Type-Safe Architecture** with full TypeScript  
-✅ **Developer-Friendly** setup and documentation
+### **🔧 Development Workflows**
+
+- **[BUG_FIXING_WORKFLOW.md](./BUG_FIXING_WORKFLOW.md)** - Systematic bug fixing and feature development process
+
+### **🗃️ Reference**
+
+- **[angular/](./angular/)** - Angular-specific documentation and reference materials
+
+## 🎯 **What BB Foundation Provides**
+
+A **production-ready Angular library** (`@bb/foundation`) that delivers:
+
+✅ **Direct Material Theming** - No component wrapping required  
+✅ **5 Beautiful Built-in Themes** with dark mode support  
+✅ **Reactive Theme System** using Angular Signals  
+✅ **Comprehensive Design Tokens** for consistent styling  
+✅ **Runtime Theme Switching** without rebuilds  
+✅ **Type-Safe Architecture** with full TypeScript support  
+✅ **Developer-Friendly** integration and customization
 
 ## 🚀 **Quick Start**
 
-1. **Clone and install**
+### **1. Installation**
 
-   ```bash
-   git clone <repository-url>
-   cd bb-design-system
-   npm install
-   ```
+```bash
+npm install @bb/foundation
+```
 
-2. **Start the demo**
+### **2. Integration**
 
-   ```bash
-   npm run start:demo
-   ```
+```typescript
+// app.config.ts
+import { BbFoundationModule } from '@bb/foundation';
 
-3. **Open your browser**
-   Navigate to `http://localhost:4200`
+export const appConfig: ApplicationConfig = {
+  providers: [
+    importProvidersFrom(BbFoundationModule.forRoot()),
+    // other providers...
+  ]
+};
+```
 
-## 🎨 **Theme System**
+### **3. Usage**
 
-The project includes 5 beautiful themes:
+```typescript
+// your-component.ts
+import { ThemeService } from '@bb/foundation';
 
-- 🌊 **Coastal** - Blue and bone colors
-- ☀️ **Icarus** - Golden yellow and redwood
-- ⚡ **Midnight Lightning** - Ultra violet and xanthous
-- 🏡 **Future House** - Prussian blue and jasper
-- 💒 **Wedding Adjacent** - Myrtle green and viridian
+@Component({...})
+export class YourComponent {
+  private themeService = inject(ThemeService);
+  
+  changeTheme(themeName: string) {
+    this.themeService.changeTheme(themeName);
+  }
+  
+  toggleDarkMode() {
+    this.themeService.toggleDarkMode();
+  }
+}
+```
 
-Each theme supports both light and dark modes with automatic system preference detection.
+## 🎨 **Built-in Theme System**
 
-## 🧩 **Component Showcase**
+BB Foundation includes 5 carefully crafted themes:
 
-The demo includes comprehensive examples of:
+- 🌊 **Coastal** - Ocean-inspired blues and bone colors
+- ☀️ **Icarus** - Warm golden yellow and redwood
+- ⚡ **Midnight Lightning** - Electric purple and bright yellow
+- 🏡 **Future House** - Tech blue with organic accents
+- 💒 **Wedding Adjacent** - Elegant green and lavender
 
-- **Buttons & Actions** - All button variants, toggles, icons with badges
-- **Forms & Inputs** - Form fields, checkboxes, radio buttons, sliders, progress bars
-- **Data Display** - Tables, cards, chips with sample data
-- **Navigation** - Steppers, expansion panels, menus
+Each theme supports:
+- **Light/Dark modes** with intelligent color adjustments
+- **Automatic system preference** detection
+- **Smooth transitions** between themes
+- **Accessibility compliance** with WCAG AA standards
 
-## 🛠 **Using This Base Project**
+## 🧩 **System Architecture**
 
-This project serves as a **template** for new Better in Binary projects:
+### **Library Structure**
+```
+@bb/foundation/
+├── core/theme/           # Theme service and interfaces
+├── core/tokens/          # Design token system (SCSS)
+├── styles/              # Material component theming
+├── utils/               # Color utilities and helpers
+└── bb-foundation.module # Angular module
+```
 
-1. **Copy the structure** to your new project
-2. **Import the theme service** and interfaces
-3. **Apply the global styles** for consistent theming
-4. **Customize themes** in the theme interface
-5. **Add your components** following the established patterns
+### **Key Features**
+- **CSS Custom Properties** for dynamic theming
+- **Angular Signals** for reactive state management
+- **Systematic Material Theming** for all components
+- **Comprehensive Validation** and error handling
+- **Performance Optimized** with efficient updates
 
-## 📖 **Key Files to Understand**
+## 🛠 **Integration Patterns**
 
-- `projects/demo/src/app/services/theme.service.ts` - Theme management
-- `projects/demo/src/app/interfaces/theme.interface.ts` - Theme definitions
-- `projects/demo/src/app/components/theme-demo/theme-demo.component.ts` - Component showcase
-- `projects/demo/src/styles.scss` - Global styles and Material fixes
+### **Basic Integration**
+Perfect for new projects - just add the module and start using themes.
+
+### **Advanced Configuration**
+Customize default themes, storage keys, validation rules, and more.
+
+### **Custom Themes**
+Create and register your own themes using the comprehensive theming API.
+
+### **Migration Support**
+Easy migration from other theming systems with compatibility layers.
+
+## 📖 **Key Files Reference**
+
+### **Library Files**
+- `@bb/foundation` - Main library export
+- `ThemeService` - Core theme management service
+- `ThemeConfig` - Theme configuration interfaces
+- `DEFAULT_THEMES` - Built-in theme collection
+
+### **Demo Application**
+- `projects/demo/` - Comprehensive showcase application
+- Demonstrates all features and integration patterns
+- Serves as reference implementation
 
 ## 🎯 **Success Metrics**
 
-✅ **Completed Goals**
+✅ **Architectural Goals Achieved**
+- Clean separation between foundation and applications
+- Direct Material component theming (no wrappers)
+- Reactive theme system with Angular Signals
+- Comprehensive design token system
+- Production-ready library with ng-packagr
 
-- Clean, standardized Angular base project
-- Comprehensive theme system with 5 themes
-- Dark mode support
-- Complete Material Design component showcase
-- Responsive design
-- Consistent styling and spacing
+✅ **Developer Experience Goals**
+- Simple integration (one line in app.config.ts)
 - Type-safe theme management
-- Local storage persistence
-
-🎯 **Ready for Production**
-
-- Stable Angular 19 foundation
-- Professional UI components
-- Scalable architecture
-- Developer-friendly setup
 - Comprehensive documentation
+- Clear migration paths
+- Extensive customization options
+
+✅ **Technical Goals**
+- Zero runtime dependencies (peer deps only)
+- Efficient CSS custom property updates
+- Accessibility compliant (WCAG AA)
+- Performance optimized
+- Tree-shakable design
+
+## 🔄 **Migration from Demo-Based System**
+
+The original demo application has been refactored into a reusable library. Key changes:
+
+1. **Theme service** moved to `@bb/foundation` library
+2. **Direct imports** from library instead of local files
+3. **Improved architecture** with better separation of concerns
+4. **Enhanced features** like theme validation and utilities
+
+See [BB_FOUNDATION_ARCHITECTURE.md](./BB_FOUNDATION_ARCHITECTURE.md) for complete migration guide.
+
+## 🏁 **Ready for Production**
+
+BB Foundation is now a mature, production-ready theming system that:
+- **Scales** from simple projects to complex enterprise applications
+- **Integrates** seamlessly with existing Angular Material projects
+- **Evolves** with your design system needs
+- **Maintains** consistency across teams and projects
 
 ---
 
-**This project now serves as the perfect foundation for all Better in Binary projects, providing a standardized, themeable, and professional starting point.**
+**BB Foundation provides the perfect balance of power and simplicity, enabling teams to create beautiful, consistent Angular Material applications with minimal setup and maximum flexibility.**

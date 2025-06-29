@@ -1,11 +1,11 @@
-<div class="min-h-screen bg-background text-text flex flex-col">
+<div class="min-h-screen flex flex-col" style="background-color: var(--bb-background); color: var(--bb-text);">
   <!-- Header -->
-  <header class="bg-surface border-b border-neutral/20 shadow-sm">
+  <header class="shadow-sm" style="background-color: var(--bb-surface); border-bottom: 1px solid var(--bb-outline);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
-        <h1 class="text-xl font-semibold">Angular Material + Tailwind Demo</h1>
+        <h1 class="text-xl font-semibold" style="color: var(--bb-text);">BB Foundation Demo</h1>
         <div class="flex items-center space-x-4">
-          <span class="text-sm text-text/70">Theme System</span>
+          <app-theme-demo-header></app-theme-demo-header>
         </div>
       </div>
     </div>
@@ -17,10 +17,10 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-surface border-t border-neutral/20">
+  <footer style="background-color: var(--bb-surface); border-top: 1px solid var(--bb-outline);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      <p class="text-center text-sm text-text/70">
-        &copy; 2024 Better in Binary. Built with Angular Material + Tailwind CSS.
+      <p class="text-center text-sm" style="color: var(--bb-textSecondary);">
+        &copy; 2024 Better in Binary. Built with BB Foundation.
       </p>
     </div>
   </footer>

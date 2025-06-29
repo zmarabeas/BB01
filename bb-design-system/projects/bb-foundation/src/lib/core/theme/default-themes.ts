@@ -1,38 +1,15 @@
-export interface ThemeColors {
-  primary: string;
-  secondary: string;
-  surface: string;
-  neutral: string;
-  text: string;
-  background: string;
-  // Additional colors for better Material Design integration
-  primaryLight?: string;
-  primaryDark?: string;
-  secondaryLight?: string;
-  secondaryDark?: string;
-  surfaceLight?: string;
-  surfaceDark?: string;
-  error?: string;
-  warning?: string;
-  success?: string;
-  info?: string;
-}
+import { ThemeConfig, ThemeRegistry } from './theme.interface';
 
-export interface ThemeConfig {
-  name: ThemeName;
-  displayName: string;
-  icon: string;
-  colors: ThemeColors;
-}
-
-export type ThemeName = 'coastal' | 'icarus' | 'midnight-lightning' | 'future-house' | 'wedding-adjacent';
-export type ThemeMode = 'light' | 'dark' | 'auto';
-
-export const THEMES: Record<ThemeName, ThemeConfig> = {
+/**
+ * Default theme configurations for the B01 foundation
+ */
+export const DEFAULT_THEMES: ThemeRegistry = {
   coastal: {
     name: 'coastal',
     displayName: '🌊 Coastal',
     icon: '🌊',
+    description: 'Ocean-inspired blues and natural tones for a calming interface',
+    category: 'nature',
     colors: {
       primary: '#1b9aaa',    // Blue Munsell
       primaryLight: '#4db6c7',
@@ -49,13 +26,19 @@ export const THEMES: Record<ThemeName, ThemeConfig> = {
       error: '#d32f2f',
       warning: '#f57c00',
       success: '#388e3c',
-      info: '#1976d2'
+      info: '#1976d2',
+      outline: '#e0e0e0',
+      textSecondary: '#757575',
+      textDisabled: '#bdbdbd'
     }
   },
+  
   icarus: {
     name: 'icarus',
     displayName: '☀️ Icarus',
     icon: '☀️',
+    description: 'Warm golden yellows with earthy tones for an energetic feel',
+    category: 'warm',
     colors: {
       primary: '#f0a202',    // Gamboge (Golden Yellow)
       primaryLight: '#ffb74d',
@@ -72,13 +55,19 @@ export const THEMES: Record<ThemeName, ThemeConfig> = {
       error: '#d32f2f',
       warning: '#f57c00',
       success: '#388e3c',
-      info: '#1976d2'
+      info: '#1976d2',
+      outline: '#d0d0d0',
+      textSecondary: '#5a5a5a',
+      textDisabled: '#a0a0a0'
     }
   },
+  
   'midnight-lightning': {
     name: 'midnight-lightning',
     displayName: '⚡ Midnight Lightning',
     icon: '⚡',
+    description: 'Electric purples with bright yellow accents for a dynamic interface',
+    category: 'electric',
     colors: {
       primary: '#52489c',    // Ultra Violet
       primaryLight: '#7b6fb3',
@@ -95,13 +84,19 @@ export const THEMES: Record<ThemeName, ThemeConfig> = {
       error: '#d32f2f',
       warning: '#f57c00',
       success: '#388e3c',
-      info: '#1976d2'
+      info: '#1976d2',
+      outline: '#d5dfe5',
+      textSecondary: '#666666',
+      textDisabled: '#999999'
     }
   },
+  
   'future-house': {
     name: 'future-house',
     displayName: '🏡 Future House',
     icon: '🏡',
+    description: 'Professional blues with warm accents for modern applications',
+    category: 'professional',
     colors: {
       primary: '#0b3954',    // Prussian Blue
       primaryLight: '#1e5a7a',
@@ -118,13 +113,19 @@ export const THEMES: Record<ThemeName, ThemeConfig> = {
       error: '#d32f2f',
       warning: '#f57c00',
       success: '#388e3c',
-      info: '#1976d2'
+      info: '#1976d2',
+      outline: '#e0e0e0',
+      textSecondary: '#4a5c4a',
+      textDisabled: '#a5a5a5'
     }
   },
+  
   'wedding-adjacent': {
     name: 'wedding-adjacent',
     displayName: '💒 Wedding Adjacent',
     icon: '💒',
+    description: 'Elegant greens and lavenders for sophisticated interfaces',
+    category: 'elegant',
     colors: {
       primary: '#538083',    // Myrtle Green
       primaryLight: '#7ba0a3',
@@ -141,7 +142,29 @@ export const THEMES: Record<ThemeName, ThemeConfig> = {
       error: '#d32f2f',
       warning: '#f57c00',
       success: '#388e3c',
-      info: '#1976d2'
+      info: '#1976d2',
+      outline: '#dfd9e2',
+      textSecondary: '#a0a7b0',
+      textDisabled: '#c0c7d0'
     }
   }
-}; 
+};
+
+/**
+ * Get all default theme names
+ */
+export const DEFAULT_THEME_NAMES = Object.keys(DEFAULT_THEMES);
+
+/**
+ * Get default theme by name
+ */
+export function getDefaultTheme(name: string): ThemeConfig | undefined {
+  return DEFAULT_THEMES[name];
+}
+
+/**
+ * Check if a theme name is a default theme
+ */
+export function isDefaultTheme(name: string): boolean {
+  return name in DEFAULT_THEMES;
+}

@@ -1,0 +1,209 @@
+// ============================================================================
+// B01 Foundation - Color Tokens
+// ============================================================================
+
+// Base Color Palette
+// These are the foundational colors that can be used across all themes
+
+// Primary Color Scale
+$bb-primary-50: #eff6ff;
+$bb-primary-100: #dbeafe;
+$bb-primary-200: #bfdbfe;
+$bb-primary-300: #93c5fd;
+$bb-primary-400: #60a5fa;
+$bb-primary-500: #3b82f6; // Main primary
+$bb-primary-600: #2563eb;
+$bb-primary-700: #1d4ed8;
+$bb-primary-800: #1e40af;
+$bb-primary-900: #1e3a8a;
+$bb-primary-950: #172554;
+
+// Secondary Color Scale
+$bb-secondary-50: #f8fafc;
+$bb-secondary-100: #f1f5f9;
+$bb-secondary-200: #e2e8f0;
+$bb-secondary-300: #cbd5e1;
+$bb-secondary-400: #94a3b8;
+$bb-secondary-500: #64748b; // Main secondary
+$bb-secondary-600: #475569;
+$bb-secondary-700: #334155;
+$bb-secondary-800: #1e293b;
+$bb-secondary-900: #0f172a;
+$bb-secondary-950: #020617;
+
+// Tech Accent Colors
+$bb-tech-50: #ecfeff;
+$bb-tech-100: #cffafe;
+$bb-tech-200: #a5f3fc;
+$bb-tech-300: #67e8f9;
+$bb-tech-400: #22d3ee;
+$bb-tech-500: #06b6d4; // Main tech accent
+$bb-tech-600: #0891b2;
+$bb-tech-700: #0e7490;
+$bb-tech-800: #155e75;
+$bb-tech-900: #164e63;
+$bb-tech-950: #083344;
+
+// Semantic Color Scales
+// Success Colors
+$bb-success-50: #ecfdf5;
+$bb-success-100: #d1fae5;
+$bb-success-200: #a7f3d0;
+$bb-success-300: #6ee7b7;
+$bb-success-400: #34d399;
+$bb-success-500: #10b981; // Main success
+$bb-success-600: #059669;
+$bb-success-700: #047857;
+$bb-success-800: #065f46;
+$bb-success-900: #064e3b;
+
+// Warning Colors
+$bb-warning-50: #fffbeb;
+$bb-warning-100: #fef3c7;
+$bb-warning-200: #fde68a;
+$bb-warning-300: #fcd34d;
+$bb-warning-400: #fbbf24;
+$bb-warning-500: #f59e0b; // Main warning
+$bb-warning-600: #d97706;
+$bb-warning-700: #b45309;
+$bb-warning-800: #92400e;
+$bb-warning-900: #78350f;
+
+// Error Colors
+$bb-error-50: #fef2f2;
+$bb-error-100: #fee2e2;
+$bb-error-200: #fecaca;
+$bb-error-300: #fca5a5;
+$bb-error-400: #f87171;
+$bb-error-500: #ef4444; // Main error
+$bb-error-600: #dc2626;
+$bb-error-700: #b91c1c;
+$bb-error-800: #991b1b;
+$bb-error-900: #7f1d1d;
+
+// Info Colors
+$bb-info-50: #f0f9ff;
+$bb-info-100: #e0f2fe;
+$bb-info-200: #bae6fd;
+$bb-info-300: #7dd3fc;
+$bb-info-400: #38bdf8;
+$bb-info-500: #0ea5e9; // Main info
+$bb-info-600: #0284c7;
+$bb-info-700: #0369a1;
+$bb-info-800: #075985;
+$bb-info-900: #0c4a6e;
+
+// Neutral Colors
+$bb-neutral-50: #fafafa;
+$bb-neutral-100: #f5f5f5;
+$bb-neutral-200: #e5e5e5;
+$bb-neutral-300: #d4d4d4;
+$bb-neutral-400: #a3a3a3;
+$bb-neutral-500: #737373;
+$bb-neutral-600: #525252;
+$bb-neutral-700: #404040;
+$bb-neutral-800: #262626;
+$bb-neutral-900: #171717;
+$bb-neutral-950: #0a0a0a;
+
+// CSS Custom Properties
+// These will be dynamically updated by the theme service
+:root {
+  // Primary color system
+  --bb-primary-50: #{$bb-primary-50};
+  --bb-primary-100: #{$bb-primary-100};
+  --bb-primary-200: #{$bb-primary-200};
+  --bb-primary-300: #{$bb-primary-300};
+  --bb-primary-400: #{$bb-primary-400};
+  --bb-primary-500: #{$bb-primary-500};
+  --bb-primary-600: #{$bb-primary-600};
+  --bb-primary-700: #{$bb-primary-700};
+  --bb-primary-800: #{$bb-primary-800};
+  --bb-primary-900: #{$bb-primary-900};
+  --bb-primary-950: #{$bb-primary-950};
+  
+  // Secondary color system
+  --bb-secondary-50: #{$bb-secondary-50};
+  --bb-secondary-100: #{$bb-secondary-100};
+  --bb-secondary-200: #{$bb-secondary-200};
+  --bb-secondary-300: #{$bb-secondary-300};
+  --bb-secondary-400: #{$bb-secondary-400};
+  --bb-secondary-500: #{$bb-secondary-500};
+  --bb-secondary-600: #{$bb-secondary-600};
+  --bb-secondary-700: #{$bb-secondary-700};
+  --bb-secondary-800: #{$bb-secondary-800};
+  --bb-secondary-900: #{$bb-secondary-900};
+  --bb-secondary-950: #{$bb-secondary-950};
+  
+  // Tech accent system
+  --bb-tech-50: #{$bb-tech-50};
+  --bb-tech-100: #{$bb-tech-100};
+  --bb-tech-200: #{$bb-tech-200};
+  --bb-tech-300: #{$bb-tech-300};
+  --bb-tech-400: #{$bb-tech-400};
+  --bb-tech-500: #{$bb-tech-500};
+  --bb-tech-600: #{$bb-tech-600};
+  --bb-tech-700: #{$bb-tech-700};
+  --bb-tech-800: #{$bb-tech-800};
+  --bb-tech-900: #{$bb-tech-900};
+  --bb-tech-950: #{$bb-tech-950};
+  
+  // Semantic colors
+  --bb-success: #{$bb-success-500};
+  --bb-success-light: #{$bb-success-400};
+  --bb-success-dark: #{$bb-success-600};
+  
+  --bb-warning: #{$bb-warning-500};
+  --bb-warning-light: #{$bb-warning-400};
+  --bb-warning-dark: #{$bb-warning-600};
+  
+  --bb-error: #{$bb-error-500};
+  --bb-error-light: #{$bb-error-400};
+  --bb-error-dark: #{$bb-error-600};
+  
+  --bb-info: #{$bb-info-500};
+  --bb-info-light: #{$bb-info-400};
+  --bb-info-dark: #{$bb-info-600};
+  
+  // Dynamic theme colors (updated by ThemeService)
+  --bb-primary: var(--bb-primary-500);
+  --bb-primaryLight: var(--bb-primary-400);
+  --bb-primaryDark: var(--bb-primary-600);
+  
+  --bb-secondary: var(--bb-secondary-500);
+  --bb-secondaryLight: var(--bb-secondary-400);
+  --bb-secondaryDark: var(--bb-secondary-600);
+  
+  --bb-tech: var(--bb-tech-500);
+  --bb-techLight: var(--bb-tech-400);
+  --bb-techDark: var(--bb-tech-600);
+  
+  // Surface and background (theme-dependent)
+  --bb-surface: #{$bb-neutral-50};
+  --bb-surfaceLight: #ffffff;
+  --bb-surfaceDark: #{$bb-neutral-100};
+  --bb-surface-elevated: #ffffff;
+  --bb-surface-overlay: rgba(255, 255, 255, 0.9);
+  
+  --bb-background: #ffffff;
+  --bb-background-alt: #{$bb-neutral-50};
+  
+  // Text colors (theme-dependent)
+  --bb-text: #{$bb-neutral-900};
+  --bb-textSecondary: #{$bb-neutral-600};
+  --bb-textDisabled: #{$bb-neutral-400};
+  --bb-textInverse: #ffffff;
+  
+  // Border and outline colors
+  --bb-outline: #{$bb-neutral-300};
+  --bb-outline-variant: #{$bb-neutral-200};
+  --bb-outline-focus: var(--bb-primary);
+  --bb-outline-error: var(--bb-error);
+  
+  // Interactive state colors
+  --bb-hover: rgba(0, 0, 0, 0.04);
+  --bb-pressed: rgba(0, 0, 0, 0.08);
+  --bb-focus: rgba(0, 0, 0, 0.12);
+  --bb-selected: rgba(0, 0, 0, 0.08);
+  --bb-disabled: rgba(0, 0, 0, 0.12);
+}

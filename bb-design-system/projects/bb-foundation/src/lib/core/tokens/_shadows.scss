@@ -1,0 +1,134 @@
+// ============================================================================
+// B01 Foundation - Shadow Tokens
+// ============================================================================
+
+// Base Shadow Definitions
+$bb-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$bb-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$bb-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+$bb-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+$bb-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+$bb-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+$bb-shadow-none: 0 0 #0000;
+
+// Tech Glow Effects (signature B01 shadows)
+$bb-glow-primary: 0 0 20px rgb(59 130 246 / 0.3);
+$bb-glow-primary-intense: 0 0 30px rgb(59 130 246 / 0.5);
+$bb-glow-secondary: 0 0 20px rgb(100 116 139 / 0.3);
+$bb-glow-tech: 0 0 20px rgb(6 182 212 / 0.3);
+$bb-glow-tech-intense: 0 0 30px rgb(6 182 212 / 0.5);
+$bb-glow-success: 0 0 20px rgb(16 185 129 / 0.3);
+$bb-glow-warning: 0 0 20px rgb(245 158 11 / 0.3);
+$bb-glow-error: 0 0 20px rgb(239 68 68 / 0.3);
+
+// Component-Specific Shadows
+$bb-button-shadow: $bb-shadow-sm;
+$bb-button-shadow-hover: $bb-shadow-md;
+$bb-button-shadow-focus: 0 0 0 3px rgb(59 130 246 / 0.1);
+
+$bb-card-shadow: $bb-shadow-md;
+$bb-card-shadow-hover: $bb-shadow-lg;
+$bb-card-shadow-elevated: $bb-shadow-xl;
+
+$bb-modal-shadow: $bb-shadow-2xl;
+$bb-dropdown-shadow: $bb-shadow-lg;
+$bb-tooltip-shadow: $bb-shadow-md;
+
+$bb-input-shadow-focus: 0 0 0 3px rgb(59 130 246 / 0.1);
+$bb-input-shadow-error: 0 0 0 3px rgb(239 68 68 / 0.1);
+
+// Dark Mode Shadows (more prominent)
+$bb-shadow-dark-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+$bb-shadow-dark-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+$bb-shadow-dark-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+$bb-shadow-dark-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+$bb-shadow-dark-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+
+// CSS Custom Properties
+:root {
+  // Base shadows
+  --bb-shadow-sm: #{$bb-shadow-sm};
+  --bb-shadow-md: #{$bb-shadow-md};
+  --bb-shadow-lg: #{$bb-shadow-lg};
+  --bb-shadow-xl: #{$bb-shadow-xl};
+  --bb-shadow-2xl: #{$bb-shadow-2xl};
+  --bb-shadow-inner: #{$bb-shadow-inner};
+  --bb-shadow-none: #{$bb-shadow-none};
+  
+  // Glow effects
+  --bb-glow-primary: #{$bb-glow-primary};
+  --bb-glow-primary-intense: #{$bb-glow-primary-intense};
+  --bb-glow-secondary: #{$bb-glow-secondary};
+  --bb-glow-tech: #{$bb-glow-tech};
+  --bb-glow-tech-intense: #{$bb-glow-tech-intense};
+  --bb-glow-success: #{$bb-glow-success};
+  --bb-glow-warning: #{$bb-glow-warning};
+  --bb-glow-error: #{$bb-glow-error};
+  
+  // Component shadows
+  --bb-button-shadow: #{$bb-button-shadow};
+  --bb-button-shadow-hover: #{$bb-button-shadow-hover};
+  --bb-button-shadow-focus: #{$bb-button-shadow-focus};
+  
+  --bb-card-shadow: #{$bb-card-shadow};
+  --bb-card-shadow-hover: #{$bb-card-shadow-hover};
+  --bb-card-shadow-elevated: #{$bb-card-shadow-elevated};
+  
+  --bb-modal-shadow: #{$bb-modal-shadow};
+  --bb-dropdown-shadow: #{$bb-dropdown-shadow};
+  --bb-tooltip-shadow: #{$bb-tooltip-shadow};
+  
+  --bb-input-shadow-focus: #{$bb-input-shadow-focus};
+  --bb-input-shadow-error: #{$bb-input-shadow-error};
+}
+
+// Dark mode shadow overrides
+:root.bb-dark {
+  --bb-shadow-sm: #{$bb-shadow-dark-sm};
+  --bb-shadow-md: #{$bb-shadow-dark-md};
+  --bb-shadow-lg: #{$bb-shadow-dark-lg};
+  --bb-shadow-xl: #{$bb-shadow-dark-xl};
+  --bb-shadow-2xl: #{$bb-shadow-dark-2xl};
+  
+  --bb-card-shadow: #{$bb-shadow-dark-md};
+  --bb-card-shadow-hover: #{$bb-shadow-dark-lg};
+  --bb-card-shadow-elevated: #{$bb-shadow-dark-xl};
+  
+  --bb-modal-shadow: #{$bb-shadow-dark-2xl};
+  --bb-dropdown-shadow: #{$bb-shadow-dark-lg};
+}
+
+// Shadow Utility Classes
+.bb-shadow-none { box-shadow: var(--bb-shadow-none) !important; }
+.bb-shadow-sm { box-shadow: var(--bb-shadow-sm) !important; }
+.bb-shadow-md { box-shadow: var(--bb-shadow-md) !important; }
+.bb-shadow-lg { box-shadow: var(--bb-shadow-lg) !important; }
+.bb-shadow-xl { box-shadow: var(--bb-shadow-xl) !important; }
+.bb-shadow-2xl { box-shadow: var(--bb-shadow-2xl) !important; }
+.bb-shadow-inner { box-shadow: var(--bb-shadow-inner) !important; }
+
+// Glow effect utilities
+.bb-glow-primary { box-shadow: var(--bb-glow-primary) !important; }
+.bb-glow-primary-intense { box-shadow: var(--bb-glow-primary-intense) !important; }
+.bb-glow-secondary { box-shadow: var(--bb-glow-secondary) !important; }
+.bb-glow-tech { box-shadow: var(--bb-glow-tech) !important; }
+.bb-glow-tech-intense { box-shadow: var(--bb-glow-tech-intense) !important; }
+.bb-glow-success { box-shadow: var(--bb-glow-success) !important; }
+.bb-glow-warning { box-shadow: var(--bb-glow-warning) !important; }
+.bb-glow-error { box-shadow: var(--bb-glow-error) !important; }
+
+// Hover shadow utilities
+.bb-hover-shadow-md:hover { box-shadow: var(--bb-shadow-md) !important; }
+.bb-hover-shadow-lg:hover { box-shadow: var(--bb-shadow-lg) !important; }
+.bb-hover-shadow-xl:hover { box-shadow: var(--bb-shadow-xl) !important; }
+
+// Focus shadow utilities
+.bb-focus-shadow-primary:focus { 
+  box-shadow: var(--bb-input-shadow-focus) !important; 
+  outline: none !important;
+}
+
+.bb-focus-shadow-error:focus { 
+  box-shadow: var(--bb-input-shadow-error) !important; 
+  outline: none !important;
+}

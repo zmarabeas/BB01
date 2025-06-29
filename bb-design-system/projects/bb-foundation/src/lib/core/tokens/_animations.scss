@@ -1,0 +1,324 @@
+// ============================================================================
+// B01 Foundation - Animation Tokens
+// ============================================================================
+
+// Animation Durations
+$bb-duration-75: 75ms;
+$bb-duration-100: 100ms;
+$bb-duration-150: 150ms;
+$bb-duration-200: 200ms;
+$bb-duration-300: 300ms;
+$bb-duration-400: 400ms;
+$bb-duration-500: 500ms;
+$bb-duration-700: 700ms;
+$bb-duration-1000: 1000ms;
+
+// Easing Functions
+$bb-ease-linear: linear;
+$bb-ease-in: cubic-bezier(0.4, 0, 1, 1);
+$bb-ease-out: cubic-bezier(0, 0, 0.2, 1);
+$bb-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Custom Tech Easing (signature B01 animations)
+$bb-ease-tech: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$bb-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$bb-ease-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$bb-ease-anticipate: cubic-bezier(0.22, 1, 0.36, 1);
+
+// Common Transition Combinations
+$bb-transition-fast: all $bb-duration-150 $bb-ease-out;
+$bb-transition-normal: all $bb-duration-200 $bb-ease-out;
+$bb-transition-slow: all $bb-duration-300 $bb-ease-out;
+$bb-transition-tech: all $bb-duration-200 $bb-ease-tech;
+$bb-transition-bounce: all $bb-duration-300 $bb-ease-bounce;
+
+// Component-Specific Transitions
+$bb-button-transition: background-color $bb-duration-150 $bb-ease-out, 
+                       box-shadow $bb-duration-150 $bb-ease-out,
+                       transform $bb-duration-150 $bb-ease-out;
+
+$bb-input-transition: border-color $bb-duration-200 $bb-ease-out,
+                      box-shadow $bb-duration-200 $bb-ease-out;
+
+$bb-card-transition: box-shadow $bb-duration-200 $bb-ease-out,
+                     transform $bb-duration-200 $bb-ease-out;
+
+$bb-modal-transition: opacity $bb-duration-300 $bb-ease-out,
+                      transform $bb-duration-300 $bb-ease-tech;
+
+$bb-dropdown-transition: opacity $bb-duration-200 $bb-ease-out,
+                         transform $bb-duration-200 $bb-ease-back;
+
+// CSS Custom Properties
+:root {
+  // Durations
+  --bb-duration-75: #{$bb-duration-75};
+  --bb-duration-100: #{$bb-duration-100};
+  --bb-duration-150: #{$bb-duration-150};
+  --bb-duration-200: #{$bb-duration-200};
+  --bb-duration-300: #{$bb-duration-300};
+  --bb-duration-400: #{$bb-duration-400};
+  --bb-duration-500: #{$bb-duration-500};
+  --bb-duration-700: #{$bb-duration-700};
+  --bb-duration-1000: #{$bb-duration-1000};
+  
+  // Easing functions
+  --bb-ease-linear: #{$bb-ease-linear};
+  --bb-ease-in: #{$bb-ease-in};
+  --bb-ease-out: #{$bb-ease-out};
+  --bb-ease-in-out: #{$bb-ease-in-out};
+  --bb-ease-tech: #{$bb-ease-tech};
+  --bb-ease-bounce: #{$bb-ease-bounce};
+  --bb-ease-back: #{$bb-ease-back};
+  --bb-ease-anticipate: #{$bb-ease-anticipate};
+  
+  // Common transitions
+  --bb-transition-fast: #{$bb-transition-fast};
+  --bb-transition-normal: #{$bb-transition-normal};
+  --bb-transition-slow: #{$bb-transition-slow};
+  --bb-transition-tech: #{$bb-transition-tech};
+  --bb-transition-bounce: #{$bb-transition-bounce};
+  
+  // Component transitions
+  --bb-button-transition: #{$bb-button-transition};
+  --bb-input-transition: #{$bb-input-transition};
+  --bb-card-transition: #{$bb-card-transition};
+  --bb-modal-transition: #{$bb-modal-transition};
+  --bb-dropdown-transition: #{$bb-dropdown-transition};
+}
+
+// Animation Keyframes
+@keyframes bb-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bb-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes bb-slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bb-slide-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bb-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bb-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bb-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bb-scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes bb-bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bb-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bb-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bb-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgb(59 130 246 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgb(59 130 246 / 0.6);
+  }
+}
+
+// Animation Utility Classes
+.bb-animate-fade-in {
+  animation: bb-fade-in var(--bb-duration-300) var(--bb-ease-out);
+}
+
+.bb-animate-fade-out {
+  animation: bb-fade-out var(--bb-duration-300) var(--bb-ease-out);
+}
+
+.bb-animate-slide-in-up {
+  animation: bb-slide-in-up var(--bb-duration-300) var(--bb-ease-tech);
+}
+
+.bb-animate-slide-in-down {
+  animation: bb-slide-in-down var(--bb-duration-300) var(--bb-ease-tech);
+}
+
+.bb-animate-slide-in-left {
+  animation: bb-slide-in-left var(--bb-duration-300) var(--bb-ease-tech);
+}
+
+.bb-animate-slide-in-right {
+  animation: bb-slide-in-right var(--bb-duration-300) var(--bb-ease-tech);
+}
+
+.bb-animate-scale-in {
+  animation: bb-scale-in var(--bb-duration-200) var(--bb-ease-back);
+}
+
+.bb-animate-scale-out {
+  animation: bb-scale-out var(--bb-duration-200) var(--bb-ease-out);
+}
+
+.bb-animate-bounce-in {
+  animation: bb-bounce-in var(--bb-duration-500) var(--bb-ease-bounce);
+}
+
+.bb-animate-pulse {
+  animation: bb-pulse var(--bb-duration-1000) var(--bb-ease-in-out) infinite;
+}
+
+.bb-animate-spin {
+  animation: bb-spin var(--bb-duration-1000) var(--bb-ease-linear) infinite;
+}
+
+.bb-animate-glow-pulse {
+  animation: bb-glow-pulse var(--bb-duration-1000) var(--bb-ease-in-out) infinite;
+}
+
+// Transition Utility Classes
+.bb-transition-fast {
+  transition: var(--bb-transition-fast);
+}
+
+.bb-transition-normal {
+  transition: var(--bb-transition-normal);
+}
+
+.bb-transition-slow {
+  transition: var(--bb-transition-slow);
+}
+
+.bb-transition-tech {
+  transition: var(--bb-transition-tech);
+}
+
+.bb-transition-bounce {
+  transition: var(--bb-transition-bounce);
+}
+
+.bb-transition-none {
+  transition: none !important;
+}
+
+// Transform Utilities
+.bb-transform {
+  transform: var(--bb-transform);
+}
+
+.bb-hover-lift:hover {
+  transform: translateY(-2px);
+  transition: transform var(--bb-duration-200) var(--bb-ease-out);
+}
+
+.bb-hover-scale:hover {
+  transform: scale(1.05);
+  transition: transform var(--bb-duration-200) var(--bb-ease-out);
+}
+
+.bb-hover-rotate:hover {
+  transform: rotate(5deg);
+  transition: transform var(--bb-duration-200) var(--bb-ease-out);
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

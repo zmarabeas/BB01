@@ -1,0 +1,94 @@
+// ============================================================================
+// B01 Foundation - Design Tokens Index
+// ============================================================================
+
+// Import all token categories
+@import 'colors';
+@import 'typography';
+@import 'spacing';
+@import 'shadows';
+@import 'animations';
+
+// Z-Index Scale
+$bb-z-dropdown: 1000;
+$bb-z-sticky: 1020;
+$bb-z-fixed: 1030;
+$bb-z-modal-backdrop: 1040;
+$bb-z-modal: 1050;
+$bb-z-popover: 1060;
+$bb-z-tooltip: 1070;
+$bb-z-toast: 1080;
+
+// Breakpoint System
+$bb-breakpoint-xs: 375px;
+$bb-breakpoint-sm: 640px;
+$bb-breakpoint-md: 768px;
+$bb-breakpoint-lg: 1024px;
+$bb-breakpoint-xl: 1280px;
+$bb-breakpoint-2xl: 1536px;
+
+// Container Max Widths
+$bb-container-sm: 640px;
+$bb-container-md: 768px;
+$bb-container-lg: 1024px;
+$bb-container-xl: 1280px;
+$bb-container-2xl: 1536px;
+
+// Border Widths
+$bb-border-0: 0;
+$bb-border-1: 1px;
+$bb-border-2: 2px;
+$bb-border-4: 4px;
+$bb-border-8: 8px;
+
+// Opacity Scale
+$bb-opacity-0: 0;
+$bb-opacity-5: 0.05;
+$bb-opacity-10: 0.1;
+$bb-opacity-20: 0.2;
+$bb-opacity-25: 0.25;
+$bb-opacity-30: 0.3;
+$bb-opacity-40: 0.4;
+$bb-opacity-50: 0.5;
+$bb-opacity-60: 0.6;
+$bb-opacity-70: 0.7;
+$bb-opacity-75: 0.75;
+$bb-opacity-80: 0.8;
+$bb-opacity-90: 0.9;
+$bb-opacity-95: 0.95;
+$bb-opacity-100: 1;
+
+// CSS Custom Properties for additional tokens
+:root {
+  // Z-index
+  --bb-z-dropdown: #{$bb-z-dropdown};
+  --bb-z-sticky: #{$bb-z-sticky};
+  --bb-z-fixed: #{$bb-z-fixed};
+  --bb-z-modal-backdrop: #{$bb-z-modal-backdrop};
+  --bb-z-modal: #{$bb-z-modal};
+  --bb-z-popover: #{$bb-z-popover};
+  --bb-z-tooltip: #{$bb-z-tooltip};
+  --bb-z-toast: #{$bb-z-toast};
+  
+  // Breakpoints
+  --bb-breakpoint-xs: #{$bb-breakpoint-xs};
+  --bb-breakpoint-sm: #{$bb-breakpoint-sm};
+  --bb-breakpoint-md: #{$bb-breakpoint-md};
+  --bb-breakpoint-lg: #{$bb-breakpoint-lg};
+  --bb-breakpoint-xl: #{$bb-breakpoint-xl};
+  --bb-breakpoint-2xl: #{$bb-breakpoint-2xl};
+  
+  // Container max widths
+  --bb-container-sm: #{$bb-container-sm};
+  --bb-container-md: #{$bb-container-md};
+  --bb-container-lg: #{$bb-container-lg};
+  --bb-container-xl: #{$bb-container-xl};
+  --bb-container-2xl: #{$bb-container-2xl};
+  
+  // Border widths
+  --bb-border-0: #{$bb-border-0};
+  --bb-border-1: #{$bb-border-1};
+  --bb-border-2: #{$bb-border-2};
+  --bb-border-4: #{$bb-border-4};
+  --bb-border-8: #{$bb-border-8};
+}

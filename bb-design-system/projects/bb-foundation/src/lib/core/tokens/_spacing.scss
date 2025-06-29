@@ -1,0 +1,247 @@
+// ============================================================================
+// B01 Foundation - Spacing Tokens
+// ============================================================================
+
+// Base Spacing Scale (based on 4px grid)
+$bb-space-0: 0;
+$bb-space-px: 1px;
+$bb-space-0_5: 0.125rem;  // 2px
+$bb-space-1: 0.25rem;     // 4px
+$bb-space-1_5: 0.375rem;  // 6px
+$bb-space-2: 0.5rem;      // 8px
+$bb-space-2_5: 0.625rem;  // 10px
+$bb-space-3: 0.75rem;     // 12px
+$bb-space-3_5: 0.875rem;  // 14px
+$bb-space-4: 1rem;        // 16px
+$bb-space-5: 1.25rem;     // 20px
+$bb-space-6: 1.5rem;      // 24px
+$bb-space-7: 1.75rem;     // 28px
+$bb-space-8: 2rem;        // 32px
+$bb-space-9: 2.25rem;     // 36px
+$bb-space-10: 2.5rem;     // 40px
+$bb-space-11: 2.75rem;    // 44px
+$bb-space-12: 3rem;       // 48px
+$bb-space-14: 3.5rem;     // 56px
+$bb-space-16: 4rem;       // 64px
+$bb-space-20: 5rem;       // 80px
+$bb-space-24: 6rem;       // 96px
+$bb-space-28: 7rem;       // 112px
+$bb-space-32: 8rem;       // 128px
+$bb-space-36: 9rem;       // 144px
+$bb-space-40: 10rem;      // 160px
+$bb-space-44: 11rem;      // 176px
+$bb-space-48: 12rem;      // 192px
+$bb-space-52: 13rem;      // 208px
+$bb-space-56: 14rem;      // 224px
+$bb-space-60: 15rem;      // 240px
+$bb-space-64: 16rem;      // 256px
+$bb-space-72: 18rem;      // 288px
+$bb-space-80: 20rem;      // 320px
+$bb-space-96: 24rem;      // 384px
+
+// Component Spacing
+// Consistent spacing for common component patterns
+
+// Padding scales
+$bb-padding-xs: $bb-space-1 $bb-space-2;        // 4px 8px
+$bb-padding-sm: $bb-space-2 $bb-space-3;        // 8px 12px
+$bb-padding-md: $bb-space-3 $bb-space-4;        // 12px 16px
+$bb-padding-lg: $bb-space-4 $bb-space-6;        // 16px 24px
+$bb-padding-xl: $bb-space-6 $bb-space-8;        // 24px 32px
+
+// Button padding
+$bb-button-padding-sm: $bb-space-2 $bb-space-3;  // 8px 12px
+$bb-button-padding-md: $bb-space-3 $bb-space-4;  // 12px 16px
+$bb-button-padding-lg: $bb-space-4 $bb-space-6;  // 16px 24px
+
+// Input padding
+$bb-input-padding-sm: $bb-space-2 $bb-space-3;   // 8px 12px
+$bb-input-padding-md: $bb-space-3 $bb-space-4;   // 12px 16px
+$bb-input-padding-lg: $bb-space-4 $bb-space-5;   // 16px 20px
+
+// Card padding
+$bb-card-padding-sm: $bb-space-4;                // 16px
+$bb-card-padding-md: $bb-space-6;                // 24px
+$bb-card-padding-lg: $bb-space-8;                // 32px
+
+// Container padding
+$bb-container-padding-sm: $bb-space-4;           // 16px
+$bb-container-padding-md: $bb-space-6;           // 24px
+$bb-container-padding-lg: $bb-space-8;           // 32px
+
+// Section padding
+$bb-section-padding-sm: $bb-space-8 $bb-space-4; // 32px 16px
+$bb-section-padding-md: $bb-space-12 $bb-space-6; // 48px 24px
+$bb-section-padding-lg: $bb-space-16 $bb-space-8; // 64px 32px
+
+// Gap scales (for flex/grid)
+$bb-gap-xs: $bb-space-1;   // 4px
+$bb-gap-sm: $bb-space-2;   // 8px
+$bb-gap-md: $bb-space-4;   // 16px
+$bb-gap-lg: $bb-space-6;   // 24px
+$bb-gap-xl: $bb-space-8;   // 32px
+
+// Border radius scale
+$bb-radius-none: 0;
+$bb-radius-sm: 0.125rem;   // 2px
+$bb-radius-md: 0.375rem;   // 6px
+$bb-radius-lg: 0.5rem;     // 8px
+$bb-radius-xl: 0.75rem;    // 12px
+$bb-radius-2xl: 1rem;      // 16px
+$bb-radius-3xl: 1.5rem;    // 24px
+$bb-radius-full: 9999px;
+
+// CSS Custom Properties
+:root {
+  // Base spacing scale
+  --bb-space-0: #{$bb-space-0};
+  --bb-space-px: #{$bb-space-px};
+  --bb-space-0_5: #{$bb-space-0_5};
+  --bb-space-1: #{$bb-space-1};
+  --bb-space-1_5: #{$bb-space-1_5};
+  --bb-space-2: #{$bb-space-2};
+  --bb-space-2_5: #{$bb-space-2_5};
+  --bb-space-3: #{$bb-space-3};
+  --bb-space-3_5: #{$bb-space-3_5};
+  --bb-space-4: #{$bb-space-4};
+  --bb-space-5: #{$bb-space-5};
+  --bb-space-6: #{$bb-space-6};
+  --bb-space-7: #{$bb-space-7};
+  --bb-space-8: #{$bb-space-8};
+  --bb-space-9: #{$bb-space-9};
+  --bb-space-10: #{$bb-space-10};
+  --bb-space-11: #{$bb-space-11};
+  --bb-space-12: #{$bb-space-12};
+  --bb-space-14: #{$bb-space-14};
+  --bb-space-16: #{$bb-space-16};
+  --bb-space-20: #{$bb-space-20};
+  --bb-space-24: #{$bb-space-24};
+  --bb-space-28: #{$bb-space-28};
+  --bb-space-32: #{$bb-space-32};
+  --bb-space-36: #{$bb-space-36};
+  --bb-space-40: #{$bb-space-40};
+  --bb-space-44: #{$bb-space-44};
+  --bb-space-48: #{$bb-space-48};
+  --bb-space-52: #{$bb-space-52};
+  --bb-space-56: #{$bb-space-56};
+  --bb-space-60: #{$bb-space-60};
+  --bb-space-64: #{$bb-space-64};
+  --bb-space-72: #{$bb-space-72};
+  --bb-space-80: #{$bb-space-80};
+  --bb-space-96: #{$bb-space-96};
+  
+  // Component-specific spacing
+  --bb-component-padding-xs: #{$bb-space-1} #{$bb-space-2};
+  --bb-component-padding-sm: #{$bb-space-2} #{$bb-space-3};
+  --bb-component-padding-md: #{$bb-space-3} #{$bb-space-4};
+  --bb-component-padding-lg: #{$bb-space-4} #{$bb-space-6};
+  --bb-component-padding-xl: #{$bb-space-6} #{$bb-space-8};
+  
+  // Button spacing
+  --bb-button-padding-sm: #{$bb-space-2} #{$bb-space-3};
+  --bb-button-padding-md: #{$bb-space-3} #{$bb-space-4};
+  --bb-button-padding-lg: #{$bb-space-4} #{$bb-space-6};
+  
+  // Input spacing
+  --bb-input-padding-sm: #{$bb-space-2} #{$bb-space-3};
+  --bb-input-padding-md: #{$bb-space-3} #{$bb-space-4};
+  --bb-input-padding-lg: #{$bb-space-4} #{$bb-space-5};
+  
+  // Card spacing
+  --bb-card-padding-sm: #{$bb-space-4};
+  --bb-card-padding-md: #{$bb-space-6};
+  --bb-card-padding-lg: #{$bb-space-8};
+  
+  // Container spacing
+  --bb-container-padding-sm: #{$bb-space-4};
+  --bb-container-padding-md: #{$bb-space-6};
+  --bb-container-padding-lg: #{$bb-space-8};
+  
+  // Gap spacing
+  --bb-gap-xs: #{$bb-gap-xs};
+  --bb-gap-sm: #{$bb-gap-sm};
+  --bb-gap-md: #{$bb-gap-md};
+  --bb-gap-lg: #{$bb-gap-lg};
+  --bb-gap-xl: #{$bb-gap-xl};
+  
+  // Border radius
+  --bb-radius-none: #{$bb-radius-none};
+  --bb-radius-sm: #{$bb-radius-sm};
+  --bb-radius-md: #{$bb-radius-md};
+  --bb-radius-lg: #{$bb-radius-lg};
+  --bb-radius-xl: #{$bb-radius-xl};
+  --bb-radius-2xl: #{$bb-radius-2xl};
+  --bb-radius-3xl: #{$bb-radius-3xl};
+  --bb-radius-full: #{$bb-radius-full};
+}
+
+// Spacing Utility Classes
+.bb-p-0 { padding: var(--bb-space-0) !important; }
+.bb-p-1 { padding: var(--bb-space-1) !important; }
+.bb-p-2 { padding: var(--bb-space-2) !important; }
+.bb-p-3 { padding: var(--bb-space-3) !important; }
+.bb-p-4 { padding: var(--bb-space-4) !important; }
+.bb-p-5 { padding: var(--bb-space-5) !important; }
+.bb-p-6 { padding: var(--bb-space-6) !important; }
+.bb-p-8 { padding: var(--bb-space-8) !important; }
+
+.bb-px-0 { padding-left: var(--bb-space-0) !important; padding-right: var(--bb-space-0) !important; }
+.bb-px-1 { padding-left: var(--bb-space-1) !important; padding-right: var(--bb-space-1) !important; }
+.bb-px-2 { padding-left: var(--bb-space-2) !important; padding-right: var(--bb-space-2) !important; }
+.bb-px-3 { padding-left: var(--bb-space-3) !important; padding-right: var(--bb-space-3) !important; }
+.bb-px-4 { padding-left: var(--bb-space-4) !important; padding-right: var(--bb-space-4) !important; }
+.bb-px-6 { padding-left: var(--bb-space-6) !important; padding-right: var(--bb-space-6) !important; }
+.bb-px-8 { padding-left: var(--bb-space-8) !important; padding-right: var(--bb-space-8) !important; }
+
+.bb-py-0 { padding-top: var(--bb-space-0) !important; padding-bottom: var(--bb-space-0) !important; }
+.bb-py-1 { padding-top: var(--bb-space-1) !important; padding-bottom: var(--bb-space-1) !important; }
+.bb-py-2 { padding-top: var(--bb-space-2) !important; padding-bottom: var(--bb-space-2) !important; }
+.bb-py-3 { padding-top: var(--bb-space-3) !important; padding-bottom: var(--bb-space-3) !important; }
+.bb-py-4 { padding-top: var(--bb-space-4) !important; padding-bottom: var(--bb-space-4) !important; }
+.bb-py-6 { padding-top: var(--bb-space-6) !important; padding-bottom: var(--bb-space-6) !important; }
+.bb-py-8 { padding-top: var(--bb-space-8) !important; padding-bottom: var(--bb-space-8) !important; }
+
+.bb-m-0 { margin: var(--bb-space-0) !important; }
+.bb-m-1 { margin: var(--bb-space-1) !important; }
+.bb-m-2 { margin: var(--bb-space-2) !important; }
+.bb-m-3 { margin: var(--bb-space-3) !important; }
+.bb-m-4 { margin: var(--bb-space-4) !important; }
+.bb-m-5 { margin: var(--bb-space-5) !important; }
+.bb-m-6 { margin: var(--bb-space-6) !important; }
+.bb-m-8 { margin: var(--bb-space-8) !important; }
+
+.bb-mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.bb-mx-0 { margin-left: var(--bb-space-0) !important; margin-right: var(--bb-space-0) !important; }
+.bb-mx-1 { margin-left: var(--bb-space-1) !important; margin-right: var(--bb-space-1) !important; }
+.bb-mx-2 { margin-left: var(--bb-space-2) !important; margin-right: var(--bb-space-2) !important; }
+.bb-mx-3 { margin-left: var(--bb-space-3) !important; margin-right: var(--bb-space-3) !important; }
+.bb-mx-4 { margin-left: var(--bb-space-4) !important; margin-right: var(--bb-space-4) !important; }
+.bb-mx-6 { margin-left: var(--bb-space-6) !important; margin-right: var(--bb-space-6) !important; }
+.bb-mx-8 { margin-left: var(--bb-space-8) !important; margin-right: var(--bb-space-8) !important; }
+
+.bb-my-0 { margin-top: var(--bb-space-0) !important; margin-bottom: var(--bb-space-0) !important; }
+.bb-my-1 { margin-top: var(--bb-space-1) !important; margin-bottom: var(--bb-space-1) !important; }
+.bb-my-2 { margin-top: var(--bb-space-2) !important; margin-bottom: var(--bb-space-2) !important; }
+.bb-my-3 { margin-top: var(--bb-space-3) !important; margin-bottom: var(--bb-space-3) !important; }
+.bb-my-4 { margin-top: var(--bb-space-4) !important; margin-bottom: var(--bb-space-4) !important; }
+.bb-my-6 { margin-top: var(--bb-space-6) !important; margin-bottom: var(--bb-space-6) !important; }
+.bb-my-8 { margin-top: var(--bb-space-8) !important; margin-bottom: var(--bb-space-8) !important; }
+
+// Gap utilities
+.bb-gap-0 { gap: var(--bb-space-0) !important; }
+.bb-gap-1 { gap: var(--bb-space-1) !important; }
+.bb-gap-2 { gap: var(--bb-space-2) !important; }
+.bb-gap-3 { gap: var(--bb-space-3) !important; }
+.bb-gap-4 { gap: var(--bb-space-4) !important; }
+.bb-gap-6 { gap: var(--bb-space-6) !important; }
+.bb-gap-8 { gap: var(--bb-space-8) !important; }
+
+// Border radius utilities
+.bb-rounded-none { border-radius: var(--bb-radius-none) !important; }
+.bb-rounded-sm { border-radius: var(--bb-radius-sm) !important; }
+.bb-rounded-md { border-radius: var(--bb-radius-md) !important; }
+.bb-rounded-lg { border-radius: var(--bb-radius-lg) !important; }
+.bb-rounded-xl { border-radius: var(--bb-radius-xl) !important; }
+.bb-rounded-2xl { border-radius: var(--bb-radius-2xl) !important; }
+.bb-rounded-3xl { border-radius: var(--bb-radius-3xl) !important; }
+.bb-rounded-full { border-radius: var(--bb-radius-full) !important; }

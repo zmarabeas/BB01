@@ -1,0 +1,99 @@
+// Foundation overrides for project-specific theming
+// These overrides customize the B01 foundation for your project
+
+:root {
+  // Override foundation primary colors with project brand colors
+  --bb-primary: #{$project-primary};
+  --bb-secondary: #{$project-secondary};
+  
+  // Project-specific color additions
+  --project-brand: #{$project-primary};
+  --project-accent: #{$project-accent};
+  
+  // Override spacing if needed
+  --project-header-height: #{$project-header-height};
+  --project-sidebar-width: #{$project-sidebar-width};
+  
+  // Custom shadow overrides
+  --bb-shadow-card: #{$project-card-shadow};
+  --bb-shadow-elevated: #{$project-elevated-shadow};
+  
+  // Typography overrides
+  --bb-font-weight-heading: #{$project-heading-font-weight};
+  --bb-font-weight-body: #{$project-body-font-weight};
+}
+
+// Dark mode overrides for project-specific colors
+:root.bb-dark {
+  --project-brand: color-mix(in srgb, #{$project-primary} 80%, white);
+  --project-accent: color-mix(in srgb, #{$project-accent} 80%, white);
+}
+
+// Material Design component overrides for project branding
+.mat-mdc-raised-button {
+  &.project-brand {
+    --mdc-protected-button-container-color: var(--project-brand);
+    --mdc-protected-button-label-text-color: white;
+    
+    &:hover {
+      --mdc-protected-button-container-color: #{color-mix(in srgb, $project-primary 85%, black)};
+    }
+  }
+}
+
+.mat-mdc-outlined-button {
+  &.project-brand {
+    --mdc-outlined-button-outline-color: var(--project-brand);
+    --mdc-outlined-button-label-text-color: var(--project-brand);
+    
+    &:hover {
+      --mdc-outlined-button-hover-state-layer-color: var(--project-brand);
+    }
+  }
+}
+
+// Custom form field styling
+.mat-mdc-form-field {
+  &.project-branded {
+    &.mat-focused {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: var(--project-brand) !important;
+      }
+    }
+  }
+}
+
+// Project-specific card styling
+.project-card {
+  background-color: var(--bb-surface);
+  border: 1px solid var(--bb-outline);
+  border-radius: #{$project-border-radius};
+  box-shadow: var(--bb-shadow-card);
+  padding: var(--bb-space-6);
+  
+  &:hover {
+    box-shadow: var(--bb-shadow-elevated);
+    transform: translateY(-2px);
+  }
+  
+  .project-card-header {
+    border-bottom: 1px solid var(--bb-outline);
+    padding-bottom: var(--bb-space-4);
+    margin-bottom: var(--bb-space-4);
+  }
+  
+  .project-card-title {
+    font-size: var(--bb-text-lg);
+    font-weight: var(--bb-font-weight-heading);
+    color: var(--bb-text);
+    margin: 0;
+  }
+  
+  .project-card-subtitle {
+    font-size: var(--bb-text-sm);
+    color: var(--bb-text-secondary);
+    margin: var(--bb-space-1) 0 0 0;
+  }
+}
